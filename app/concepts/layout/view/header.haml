@@ -1,0 +1,67 @@
+%header{class: "#{theme_style}-theme"}
+  %nav.navbar.navbar-default.custom-header
+    .container
+      .navbar-header
+        %button.navbar-toggle.collapsed{ aria: { expanded: false }, data: { toggle: 'collapse', target: '#navbar' }, type: 'button' }
+          %span.sr-only
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to t('views.app_name'), root_path, class: 'navbar-brand brand', data: { owners: 'Orlov Alexandr, Shpachenko Taras', year: 2016, copyright: true }
+      #navbar.colapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li
+            = link_to t('views.titles.requests.index'), pages_about_path
+          %li
+            = link_to t('views.titles.articles'), pages_about_path
+          %li
+            = link_to t('views.titles.pages.about'), pages_about_path
+        %ul.nav.navbar-nav.navbar-right
+          - if user_signed_in?
+            %li.dropdown
+              %a.dropdown-toggle{ title: "#{current_user.name}", data: { toggle: 'dropdown' }, href: '#' }
+                %i.fa.fa-angle-down
+                %span.name= current_user.name
+              %ul.dropdown-menu
+                %li
+                  = link_to t('views.titles.profile'), pages_about_path
+                %li
+                  = link_to pages_about_path do
+                    = t('views.titles.messages')
+                    -#- unless current_user.counters(:messages).zero?
+                    -#  %span#new-messages-count.number= current_user.counters(:messages)
+                -#- if can? :create, Request
+                %li
+                  = link_to t('views.actions.requests.create'), pages_about_path
+                -#- if can? :create, Article
+                %li
+                  = link_to t('views.actions.articles.create'), pages_about_path
+                -#- if current_user.with_privileges?
+                %li
+                  = link_to t('views.titles.admin.panel'), pages_about_path
+                -#- if can? :unchecked, Request
+                %li
+                  = link_to pages_about_path do
+                    = t('views.titles.requests.unapproved')
+                    -#- unless current_user.counters(:unchecked).zero?
+                    -#  %span#unchecked-requests-count.number= current_user.counters(:unchecked)
+                %li
+                  = link_to pages_about_path do
+                    = t('views.titles.notifications')
+                    -#- unless current_user.counters(:notifications).zero?
+                    -#  %span#new-notifications-count.number= current_user.counters(:notifications)
+                %li
+                  = link_to pages_about_path do
+                    = t('views.titles.decisions')
+                    -#- unless current_user.counters(:decisions).zero?
+                    -#  %span.number= current_user.counters(:decisions)
+                -#- if can? :change_ban_status, User
+                %li
+                  = link_to t('views.titles.users'), pages_about_path
+                %li
+                  = link_to t('views.titles.settings'), pages_about_path
+                %li
+                  = link_to t('views.titles.log_out'), pages_about_path, method: 'delete'
+          - else
+            %li
+              = link_to t('views.titles.log_in'), pages_about_path
