@@ -1,0 +1,22 @@
+AllCops:
+ Exclude:
+   # You could specify set of files or dirs while you want to be ignored by rubocop
+   - 'vendor/**/*'
+   - 'spec/**/*'
+   - 'config/**/*'
+   - 'db/**/*'
+   - 'bin/*'
+   - 'Gemfile'
+   - 'Gemfile.lock'
+   - 'Rakefile'
+   - 'Guardfile'
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Rails:
+  Enabled: true
+Style/ClassAndModuleChildren:
+  Enabled: false
