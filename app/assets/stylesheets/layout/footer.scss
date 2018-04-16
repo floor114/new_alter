@@ -1,0 +1,12 @@
+footer {
+  color: #fff;
+  .contacts li {
+    display: inline-block;
+    a {
+      color: #fff;
+      &:hover, &:focus {
+        color: #d3d3d3;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.light-theme {
+  .custom-header {
+    background: #35353f;
+    .navbar-brand {
+      color: #fff;
+    }
+    .navbar-nav {
+      li a {
+        color: #fff;
+      }
+      a {
+        &:hover, &:focus {
+          color: #35353f;
+          background: #fff;
+        }
+      }
+      .open > a {
+        background: #fff;
+        color: #35353f;
+        &:hover, &:focus {
+          background: #fff;
+          color: #35353f;
+        }
+      }
+      .dropdown-menu {
+        background: #35353f;
+      }
+    }
+  }
+  .custom-footer {
+    .contacts li {
+      font-size: 1.3em;
+      margin: 0 5px;
+    }
+    .top {
+      line-height: 133px;
+      height: 133px;
+      background: #35353f;
+      .brand {
+        font-size: 2.5em;
+        color: #fff;
+        text-decoration: none;
+      }
+      .contact-information {
+        text-align: right;
+        -webkit-transform: translateY(43px);
+        -moz-transform: translateY(43px);
+        -o-transform: translateY(43px);
+        transform: translateY(43px);
+        li {
+          line-height: 30px;
+        }
+      }
+    }
+    .bottom {
+      text-transform: uppercase;
+      color: #35353f;
+      line-height: 70px;
+      height: 70px;
+      text-align: center;
+    }
+  }
+}

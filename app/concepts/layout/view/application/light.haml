@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title= page_title
+    = csrf_meta_tags
+    = stylesheet_link_tag :font
+    = stylesheet_link_tag :application, media: :all
+    = stylesheet_link_tag general_assets_path :css
+    = stylesheet_link_tag action_assets_path :css
+    = javascript_include_tag :application
+    = javascript_include_tag general_assets_path :js
+    = javascript_include_tag action_assets_path :js
+    = favicon_link_tag :favicon
+  %body
+    = cell(::Layout::Cell::Header::Light)
+    .content
+      = cell(Layout::Cell::Alerts)
+      = yield
+    = cell(::Layout::Cell::Footer::Light)

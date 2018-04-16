@@ -16,12 +16,13 @@ gem 'coffee-rails',                                                     '~> 4.2'
 gem 'turbolinks',                                                         '~> 5'
 gem 'jbuilder',                                                         '~> 2.5'
 gem 'bootsnap',                                       '>= 1.1.0', require: false
-gem 'bootstrap',                                                      '~> 4.0.0'
+gem 'bootstrap-sass',                                                 '~> 3.3.7'
 gem 'haml-rails'
 gem 'high_voltage'
 gem 'jquery-rails'
 gem 'therubyracer'
 gem 'font-awesome-rails'
+gem 'sprockets',                                                '>= 4.0.0.beta7'
 
 #=== CONFIG ====================================================================
 gem 'dotenv-rails',                                                     '~> 2.2'

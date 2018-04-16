@@ -1,0 +1,21 @@
+%footer.light-theme
+  .custom-footer
+    .top
+      .container
+        .pull-left
+          = link_to 'Alter', root_url, class: 'brand', data: { owners: 'Orlov Alexandr ta Shpachenko Taras', year: 2016, copyright: true }
+        %ul.pull-right.contact-information
+          %li
+            %ul.contacts
+              %li
+                = link_to root_path do
+                  %i.fa.fa-twitter
+              %li
+                = link_to root_path do
+                  %i.fa.fa-vk
+              %li
+                = link_to root_path do
+                  %i.fa.fa-facebook
+          %li support@alter.com
+    .bottom
+      .container &copy;Alter, 2016. Всі права захищені.
