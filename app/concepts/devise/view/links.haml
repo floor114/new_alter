@@ -1,0 +1,21 @@
+.links
+  - if not_registrations?
+    .social-networks
+      = link_to root_path do
+        %i.fa.fa-vk
+      = link_to root_path do
+        %i.fa.fa-facebook
+      = link_to root_path do
+        %i.fa.fa-twitter
+  - if not_sessions?
+    = link_to t('views.titles.devise.log_in'), new_user_session_path
+    %br
+  - if not_registrations?
+    = link_to t('views.titles.devise.sign_up'), new_user_registration_path
+    %br
+  - if  not_passwords? && not_registrations?
+    = link_to t('views.titles.devise.forgot_password'), new_user_password_path
+    %br
+  - if not_confirmations?
+    = link_to t('views.titles.devise.didnt_receive_confirmation'), new_user_confirmation_path
+    %br

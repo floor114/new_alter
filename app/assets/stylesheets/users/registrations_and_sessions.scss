@@ -1,0 +1,200 @@
+.group-form {
+  font-family: 'Roboto', regular;
+  font-size: 0.9em;
+  margin: 0 auto;
+  padding: 40px;
+  width: 35%;
+  .field_with_errors {
+    input, textarea {
+      border-color: rgba(231, 10, 10, 0.2) !important;
+    }
+    ::-webkit-input-placeholder {
+      color: rgba(231, 10, 10, 0.5);
+    }
+  }
+  input[type=submit] {
+    margin: 40px auto;
+    width: 70%;
+    padding: 20px;
+  }
+  .error {
+    border-color: rgba(231, 10, 10, 0.2) !important;
+    &::-webkit-input-placeholder {
+      color: rgba(231, 10, 10, 0.5) !important;
+    }
+  }
+  .custom-checkbox {
+    text-align: center;
+    color: #cbcbcb;
+    padding-top: 35px;
+    input[type="checkbox"] {
+      display: none;
+      + label {
+        cursor: pointer;
+        &:hover, &:focus {
+          color: #35353f;
+        }
+        &::before {
+          content: "";
+          display: inline-block;
+          height: 14px;
+          width: 14px;
+          margin: 0 5px 0 0;
+          background-image: url(asset_path('unchecked.png'));
+          background-repeat: no-repeat;
+        }
+      }
+      &:checked + label::before {
+        background-image: url(asset_path('checked.png'));
+        color: #35353f;
+      }
+    }
+  }
+  .twitter-typeahead {
+    width: 100%;
+  }
+  .tt-query, .tt-hint {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+  }
+  .tt-query {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  }
+  .tt-hint {
+    color: #999;
+    padding: 18px 8px 17px 8px;
+  }
+  .tt-menu {
+    width: 100%;
+    max-height: 220px;
+    overflow-y: scroll;
+    padding: 8px 0;
+    background-color: #fff;
+    cursor: pointer;
+    border: 1px solid #cbcbcb;
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(53, 53, 63, 0.6);
+      border-radius: 2px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 2px;
+    }
+  }
+  .tt-suggestion {
+    padding: 3px 20px;
+    font-size: 1em;
+    line-height: 24px;
+    &:hover {
+      background-color: rgba(33, 33, 33, 0.2);
+    }
+    p {
+      margin: 0;
+    }
+  }
+  .links {
+    text-align: center;
+    a {
+      line-height: 2em;
+      color: #cbcbcb;
+      text-decoration: none;
+      &:hover, &:focus {
+        color: #35353f;
+      }
+    }
+    .social-networks {
+      text-align: center;
+      a {
+        font-size: 2em;
+      }
+    }
+  }
+  .tags-field {
+    margin-bottom: 10px;
+  }
+  .selectize-control.tags-field.multi .selectize-input .item {
+    background: #d52845;
+    border: none;
+  }
+}
+
+.request-new, .edit-profile, .request-edit {
+  margin: 40px 20px;
+}
+
+.request-new .group-form, .edit-profile .group-form, .request-edit .group-form {
+  width: 80%;
+}
+
+.request-new .group-form .title, .edit-profile .group-form .title, .request-edit .group-form .title {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.request-new .group-form:last-child, .edit-profile .group-form:last-child, .request-edit .group-form:last-child {
+  padding-top: 0;
+}
+
+.request-new .group-form input[type=submit], .edit-profile .group-form input[type=submit], .request-edit .group-form input[type=submit] {
+  width: 40%;
+}
+
+.request-new .group-form .social, .edit-profile .group-form .social, .request-edit .group-form .social {
+  white-space: nowrap;
+}
+
+.request-new .group-form .social a, .edit-profile .group-form .social a, .request-edit .group-form .social a {
+  color: #d52845;
+}
+
+.request-new .group-form .social a:hover, .edit-profile .group-form .social a:hover, .request-edit .group-form .social a:hover {
+  text-decoration: underline;
+}
+
+.request-new .group-form .social label, .edit-profile .group-form .social label, .request-edit .group-form .social label {
+  display: block;
+}
+
+.request-new .group-form .social .url-field, .edit-profile .group-form .social .url-field, .request-edit .group-form .social .url-field {
+  position: relative;
+  width: 100%;
+}
+
+.request-new .group-form .social .url-field .actions, .edit-profile .group-form .social .url-field .actions, .request-edit .group-form .social .url-field .actions {
+  position: absolute;
+  display: inline-block;
+  top: 30%;
+  float: right;
+}
+
+.request-new .group-form .social.empty, .edit-profile .group-form .social.empty, .request-edit .group-form .social.empty {
+  margin: 30px 0;
+}
+
+.request-new .group-form .bootstrap-filestyle .group-span-filestyle, .edit-profile .group-form .bootstrap-filestyle .group-span-filestyle, .request-edit .group-form .bootstrap-filestyle .group-span-filestyle {
+  border-left: 1px solid #cbcbcb;
+}
+
+.request-new .group-form .bootstrap-filestyle input, .edit-profile .group-form .bootstrap-filestyle input, .request-edit .group-form .bootstrap-filestyle input {
+  height: auto;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+  border-radius: 4px;
+  padding: 15px 10px;
+}
+
+.request-new .password-form, .edit-profile .password-form, .request-edit .password-form {
+  width: 60%;
+  display: block;
+  margin: 100px auto 0 auto;
+}
+
+.request-new .password-form input[type=submit], .edit-profile .password-form input[type=submit], .request-edit .password-form input[type=submit] {
+  width: 60%;
+}
