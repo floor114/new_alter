@@ -1,6 +1,7 @@
 en:
   views:
     app_name: Atler v2.0
+    rights: "&copy;Alter, 2018. All rights reserved."
     titles:
       pages:
         about: About
@@ -14,12 +15,41 @@ en:
         panel: Admin panel
       notifications: Notifications
       decisions: Decisions
-      users: Users
+      users:
+        index: Users
+        sessions:
+          new: Sign in
+          create: Sign in
+        registrations:
+          new: Sign up
+          create: Sign up
+        passwords:
+          new: Reset password
+          create: Reset password
+        confirmations:
+          new: Confirmation instructions
+          create: Confirmation instructions
       settings: Settings
-      log_out: Log out
-      log_in: Log in
+      devise:
+        log_out: Log out
+        log_in: Sign in
+        sign_up: Sign up
+        forgot_password: Forgot your password?
+        didnt_receive_confirmation: Didn't receive confirmation instructions?
     actions:
       requests:
         create: Create request
       articles:
         create: Create article
+      waiting: Processing...
+      send: Send
+  activerecord:
+      models:
+        user:
+          one: User
+          other: Users
+      attributes:
+        user:
+          email: Email
+          password: Password
+          password_confirmation: Password confirmation

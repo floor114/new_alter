@@ -7,7 +7,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        = link_to t('views.app_name'), root_path, class: 'navbar-brand brand', data: { owners: 'Orlov Alexandr, Shpachenko Taras', year: 2016, copyright: true }
+        = link_to t('views.app_name'), root_path, class: 'navbar-brand brand'
       #navbar.colapse.navbar-collapse
         %ul.nav.navbar-nav
           %li
@@ -23,6 +23,7 @@
                 %i.fa.fa-angle-down
                 %span.name= current_user.name
               %ul.dropdown-menu
+                / TODO: Add missed counters and auth
                 %li
                   = link_to t('views.titles.profile'), pages_about_path
                 %li
@@ -57,11 +58,11 @@
                     -#  %span.number= current_user.counters(:decisions)
                 -#- if can? :change_ban_status, User
                 %li
-                  = link_to t('views.titles.users'), pages_about_path
+                  = link_to t('views.titles.users.index'), pages_about_path
                 %li
-                  = link_to t('views.titles.settings'), pages_about_path
+                  = link_to t('views.titles.settings'), edit_user_registration_path
                 %li
-                  = link_to t('views.titles.log_out'), pages_about_path, method: 'delete'
+                  = link_to t('views.titles.devise.log_out'), destroy_user_session_path, method: 'delete'
           - else
             %li
-              = link_to t('views.titles.log_in'), pages_about_path
+              = link_to t('views.titles.devise.log_in'), new_user_session_path

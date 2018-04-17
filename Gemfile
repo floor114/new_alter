@@ -35,6 +35,9 @@ gem 'trailblazer-cells'
 gem 'cells-haml'
 gem 'cells-rails'
 
+#=== AUTHENTICATION & AUTHORIZATION ============================================
+gem 'devise'
+
 #=== DEV & TEST ================================================================
 group :development do
   gem 'web-console'

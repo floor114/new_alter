@@ -17,13 +17,17 @@ class Layout
         end
 
         def page_title
-          t("views.titles.#{params[:controller]}.#{params[:action]}", default: controller_title)
+          t("views.titles.#{controller_path}.#{params[:action]}", default: controller_title)
         end
 
         private
 
         def controller_title
-          t("views.titles.#{params[:controller]}.all", default: t('views.app_name'))
+          t("views.titles.#{controller_path}.all", default: t('views.app_name'))
+        end
+
+        def controller_path
+          params[:controller]&.tr('/', '.')
         end
       end
     end
