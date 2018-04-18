@@ -38,6 +38,9 @@ gem 'cells-rails'
 #=== AUTHENTICATION & AUTHORIZATION ============================================
 gem 'devise'
 
+#=== WIZARD ====================================================================
+gem 'wicked'
+
 #=== DEV & TEST ================================================================
 group :development do
   gem 'web-console'

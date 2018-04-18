@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
+  namespace :users, as: :user do
+    resources :registrations_steps
+  end
+
   namespace :pages do
     get :about
   end
