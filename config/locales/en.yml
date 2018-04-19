@@ -23,6 +23,8 @@ en:
         registrations:
           new: Sign up
           create: Sign up
+          edit: Settings
+          update: Settings
         passwords:
           new: Reset password
           create: Reset password
@@ -41,15 +43,45 @@ en:
         create: Create request
       articles:
         create: Create article
+      users:
+        change_avatar: Change avatar
       waiting: Processing...
       send: Send
+      save: Save
   activerecord:
+    models:
+      user:
+        one: User
+        other: Users
+    attributes:
+      user:
+        first_name: First name
+        last_name: Last name
+        email: Email
+        current_password: Current password
+        new_password: New password
+        password: Password
+        password_confirmation: Password confirmation
+        info: Personal info
+        phone_number: Phone number
+        role: Role
+        roles:
+          admin: Administrator
+      request:
+        status: Status
+        statuses:
+          active: Active
+          archived: Archived
+          unconfirmed: Unchecked
+          declined: Declined
+    errors:
       models:
         user:
-          one: User
-          other: Users
-      attributes:
-        user:
-          email: Email
-          password: Password
-          password_confirmation: Password confirmation
+          attributes:
+            base:
+              not_found: User not found.
+      messages:
+        blank: can't be blank
+  errors:
+    messages:
+      nothing_not_found: Nothing not found
