@@ -1,0 +1,14 @@
+.container
+  .edit-profile
+    .group-form
+      %h1.title= page_title
+      = form_for model, as: :user, url: user_registration_path, html: { method: :put, multipart: true, role: 'form', class: 'user-form' } do |f|
+        = f.text_field :first_name, autofocus: true, placeholder: t('activerecord.attributes.user.first_name'), class: 'custom-input'
+        = f.text_field :last_name, autofocus: true, placeholder: t('activerecord.attributes.user.last_name'), class: 'custom-input'
+        = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: t('activerecord.attributes.user.email'), class: 'disabled custom-input'
+        = f.text_area :info, rows: '10', placeholder: t('activerecord.attributes.user.info'), class: 'custom-textarea'
+        = f.text_field :phone_number, placeholder: t('activerecord.attributes.user.phone_number'), class: 'custom-input'
+        .file-field-container
+          = f.file_field :avatar, accept: 'image/png, image/jpeg', class: 'file-field', placeholder: t('views.actions.users.change_avatar')
+        = f.submit t('views.actions.save'), class: 'button', data: data_disable_with
+

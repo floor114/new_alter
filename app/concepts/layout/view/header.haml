@@ -19,13 +19,13 @@
         %ul.nav.navbar-nav.navbar-right
           - if user_signed_in?
             %li.dropdown
-              %a.dropdown-toggle{ title: "#{current_user.name}", data: { toggle: 'dropdown' }, href: '#' }
+              %a.dropdown-toggle{ title: "#{current_user.full_name}", data: { toggle: 'dropdown' }, href: '#' }
                 %i.fa.fa-angle-down
-                %span.name= current_user.name
+                %span.name= current_user.full_name
               %ul.dropdown-menu
                 / TODO: Add missed counters and auth
                 %li
-                  = link_to t('views.titles.profile'), pages_about_path
+                  = link_to t('views.titles.profile'), user_path(current_user)
                 %li
                   = link_to pages_about_path do
                     = t('views.titles.messages')
