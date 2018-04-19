@@ -7,7 +7,6 @@ ruby '2.5.0'
 gem 'rails',                                                          '~> 5.0.0'
 gem 'puma',                                                            '~> 3.11'
 gem 'pg',                                                              '~> 0.18'
-gem 'devise'
 
 #=== UI ========================================================================
 gem 'sass-rails',                                                       '~> 5.0'
@@ -23,6 +22,7 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'font-awesome-rails'
 gem 'sprockets',                                                '>= 4.0.0.beta7'
+gem 'toastr-rails'
 
 #=== CONFIG ====================================================================
 gem 'dotenv-rails',                                                     '~> 2.2'
@@ -37,6 +37,9 @@ gem 'cells-rails'
 
 #=== AUTHENTICATION & AUTHORIZATION ============================================
 gem 'devise'
+
+#=== OTHER =====================================================================
+gem 'paperclip',                                                      '~> 6.0.0'
 
 #=== DEV & TEST ================================================================
 group :development do

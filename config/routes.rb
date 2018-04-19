@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   namespace :pages do
     get :about
   end
+
+  resources :users, only: :show
 end

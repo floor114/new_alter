@@ -12,8 +12,10 @@ AllCops:
    - 'Guardfile'
 Documentation:
   Enabled: false
+Lint/UnneededCopDisableDirective:
+  Enabled: false
 Metrics/LineLength:
-  Max: 100
+  Max: 120
 Style/FrozenStringLiteralComment:
   Enabled: false
 Rails:
