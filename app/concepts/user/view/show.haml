@@ -1,0 +1,51 @@
+.container
+  .user-show
+    .user-block
+      .photo
+        = image_tag(avatar.url)
+      .info
+        -#.actions.user-actions
+          -#- if can?(:change_ban_status, user) && (current_user != user)
+          -#  - if user.role?(:banned)
+          -#    = link_to ban_user_url, method: :get, title: 'Розблокувати', data: { confirm: 'Ви дійсно хочете розблокувати користувача?'} do
+          -#      %span.fa.fa-unlock
+          -#  - else
+          -#    = link_to ban_user_url, method: :get, title: 'Заблокувати', data: { confirm: 'Ви дійсно хочете заблокувати користувача?'} do
+          -#      %span.fa.fa-lock
+          -#- if can?(:change_moder_status, user) && (current_user != user)
+          -#  - if user.role?(:moderator)
+          -#    = link_to moder_user_url, method: :get, title: 'Забрати права модератора', data: { confirm: 'Ви дійсно хочете забрати права модератора?'} do
+          -#      %span.fa.fa-user
+          -#  - else
+          -#    = link_to moder_user_url, method: :get, title: 'Надати права модератора', data: { confirm: 'Ви дійсно хочете надати права модератора?'} do
+          -#      %span.fa.fa-user-secret
+          -#- if can?(:admin_login, user) && (current_user != user)
+          -#  = link_to admin_login_user_url, method: :get, title: 'Вхід на аккаунт користувача', data: { confirm: 'Зайти на аккаунт даного користувача?'} do
+          -#    %span.fa.fa-sign-in
+          -#- if can?(:new_private, Message) && user != current_user
+          -#  = link_to dialog_messages_url(user: user), title: 'Написати повідомлення' do
+          -#%span.fa.fa-envelope
+        %p.name= full_name
+        %p.role= t(role, scope: 'activerecord.attributes.user.roles')
+        = info_block
+        .contact-info
+          = phone_number_block
+    .tabs
+      %ul.nav.nav-tabs.nav-justified
+        %li.active
+          = link_to t('activerecord.attributes.request.statuses.active'), root_path
+        %li
+          = link_to t('activerecord.attributes.request.statuses.archived'), root_path
+        %li
+          = link_to t('activerecord.attributes.request.statuses.unconfirmed'), root_path
+        %li
+          = link_to t('activerecord.attributes.request.statuses.declined'), root_path
+        -#- if can? :activity, user
+        -#  %li
+        -#    = link_to 'Активність', activity_user_url, remote: true
+        -#- if !user.helped_items.blank? && can?(:statistic, user)
+        -#  %li
+        -#    = link_to 'Cтатистика', statistic_user_url, remote: true
+      .tab-content
+        .tab-pane.active
+          %p.nothing-to-show= t('errors.messages.nothing_not_found')
