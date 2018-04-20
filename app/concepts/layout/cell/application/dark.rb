@@ -8,12 +8,22 @@ class Layout
 
         def action_assets_path(type)
           path = "#{[params[:controller], params[:action]].join('/')}.#{type}"
-          ::Rails.application.assets.find_asset(path) ? path : ''
+          asset_available?(path) ? path : ''
         end
 
         def general_assets_path(type)
           path = "#{params[:controller]&.split('/')&.first}.#{type}"
-          ::Rails.application.assets.find_asset(path) ? path : ''
+          asset_available?(path) ? path : ''
+        end
+
+        private
+
+        def asset_available?(path)
+          if ::Rails.configuration.assets.compile
+            ::Rails.application.precompiled_assets.include?(path)
+          else
+            ::Rails.application.assets_manifest.assets[path].present?
+          end
         end
       end
     end

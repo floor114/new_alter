@@ -1,0 +1,9 @@
+.request{ id: "request-#{id}" }
+  .row
+    .col-md-4
+      .photo
+        /TODO: Add photo
+        = link_to image_tag(user.avatar.url), model
+    .col-md-8
+      = cell(::Request::Cell::Info, model, list: true)
+      = cell(::Request::Cell::Categories, model)
