@@ -8,6 +8,8 @@ en:
       requests:
         index: Requests
         unapproved: Unapproved requests
+        show: Request
+        wall: Wall
       articles: Articles
       profile: Profile
       messages: Messages
@@ -82,6 +84,10 @@ en:
           attributes:
             base:
               not_found: User not found.
+        request:
+          attributes:
+            base:
+              not_found: Request not found.
       messages:
         blank: can't be blank
   errors:
