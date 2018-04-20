@@ -3,15 +3,15 @@
   %p.author= link_to user.full_name, user
   %p.date= l(created_at, format: '%d %B, %Y')
   %p.views
-    /TODO: Add impressions
+    /TODO: Add reuqest impressions
     -#= request.unique_impression_count
     = 10
     %span.fa.fa-eye
-  /TODO: Add voting
+  /TODO: Add request voting
   -#- if can? :vote, request
   -#  %div{ class: "votes votes-#{request.id}" }
   -#    = render partial: 'layouts/votes', locals: { source: request }
-/TODO: Add social sharing
+/TODO: Add request social sharing
 -#- if request.status?(:actual) && !defined?(in_list)
 -#  %a.share-button{onclick: 'Share.vkontakte()', style: 'background: #5f83aa;'}
 -#    %span.fa.fa-vk &nbsp;Поділитись

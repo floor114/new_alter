@@ -1,0 +1,23 @@
+.container
+  .request-show
+    .photo
+      /TODO: Add request photo
+      = image_tag(user.avatar.url)
+    /TODO: Add admin request actions
+    -#= render partial: 'requests/request_actions', locals: { request: @request }
+    = cell(::Request::Cell::Categories, model)
+    = cell(::Request::Cell::Info, model)
+    /TODO: Add request progress block
+    -#= render partial: 'request_progress', locals: { request: @request, decision: @decision, user: @user }
+    /TODO: Add request wall
+    /TODO: Add request activity history
+    .tabs
+      %ul.nav.nav-tabs.nav-justified
+        %li.active
+          = link_to root_path do
+            = t('views.titles.requests.wall')
+            %span#wall-counter.text-right
+              = "(10)"
+      .tab-content
+        .tab-pane.active
+          %p.nothing-to-show= t('errors.messages.nothing_to_show')
