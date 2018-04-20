@@ -25,6 +25,7 @@ en:
           create: Sign up
           edit: Settings
           update: Settings
+          change_password: Change password
         passwords:
           new: Reset password
           create: Reset password
@@ -48,6 +49,7 @@ en:
       waiting: Processing...
       send: Send
       save: Save
+      change: Change
   activerecord:
     models:
       user:
