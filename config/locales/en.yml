@@ -86,4 +86,4 @@ en:
         blank: can't be blank
   errors:
     messages:
-      nothing_not_found: Nothing not found
+      nothing_to_show: Nothing to show

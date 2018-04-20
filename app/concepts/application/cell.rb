@@ -11,6 +11,16 @@ module Application
       t("views.titles.#{controller_path}.#{params[:action]}", default: controller_title)
     end
 
+    def list_block(resources = model)
+      return empty_block if resources.blank?
+
+      cell("::#{resources.model_name.to_s.constantize}::Cell::List".constantize, collection: resources)
+    end
+
+    def list?
+      options[:list].present?
+    end
+
     private
 
     def controller_title
@@ -19,6 +29,10 @@ module Application
 
     def controller_path
       params[:controller]&.tr('/', '.')
+    end
+
+    def empty_block
+      content_tag(:p, t('errors.messages.nothing_to_show'), class: 'nothing-to-show')
     end
   end
 end
