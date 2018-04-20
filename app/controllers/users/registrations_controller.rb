@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # POST /resource
-  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def create # rubocop:disable all
     build_resource(sign_up_params)
 
     resource.save
@@ -40,11 +40,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   # PUT /resource
-  def update # rubocop:disable Metrics/AbcSize, Metrics/MethodLength, Metrics/PerceivedComplexity
+  def update # rubocop:disable all
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
-    resource_updated = resource.update_without_password(account_update_params)
+    resource_updated = if account_update_params[:current_password].present?
+                         resource.update_with_password(account_update_params)
+                       else
+                         resource.update_without_password(account_update_params)
+                       end
+
     yield resource if block_given?
     if resource_updated
       if is_flashing_format?
@@ -80,7 +85,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params

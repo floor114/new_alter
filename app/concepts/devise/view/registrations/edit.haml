@@ -11,4 +11,10 @@
         .file-field-container
           = f.file_field :avatar, accept: 'image/png, image/jpeg', class: 'file-field', placeholder: t('views.actions.users.change_avatar')
         = f.submit t('views.actions.save'), class: 'button', data: data_disable_with
-
+      .password-form
+        %h1.title= t('views.titles.users.registrations.change_password')
+        = form_for model, as: :user, url: user_registration_path, html: { method: :put } do |f|
+          = f.password_field :current_password, placeholder: t('activerecord.attributes.user.current_password'), class: 'custom-input'
+          = f.password_field :password, :autocomplete => 'off', placeholder: t('activerecord.attributes.user.new_password'), class: 'custom-input'
+          = f.password_field :password_confirmation, placeholder: t('activerecord.attributes.user.password_confirmation'), class: 'custom-input'
+          = f.submit t('views.actions.change'), class: 'button', data: data_disable_with
