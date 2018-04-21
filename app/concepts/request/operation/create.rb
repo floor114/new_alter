@@ -9,7 +9,7 @@ class Request
     step ::Trailblazer::Operation::Nested(::Request::Create::Present)
     step ::Trailblazer::Operation::AssignCurrentUser
 
-    step ::Trailblazer::Operation::Contract::Validate(key: :request_contract_create)
+    step ::Trailblazer::Operation::Contract::Validate(key: :request)
     failure ::Trailblazer::Operation::HandleAlerts
 
     step ::Trailblazer::Operation::Contract::Persist()

@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 class Request < ApplicationRecord
-  STATUSES = [
-    ACTIVE = :active,
-    ARCHIVED = :archived,
-    UNCINFIRMED = :unconfirmed,
-    DECLINED = :declined
-  ].freeze
-  enum status: STATUSES
+  enum status: {
+    active: ACTIVE = 'active',
+    archived: ARCHIVED = 'archived',
+    unconfirmed: UNCONFIRMED = 'unconfirmed',
+    declined: DECLINED = 'declined'
+  }
 
   belongs_to :user
 end

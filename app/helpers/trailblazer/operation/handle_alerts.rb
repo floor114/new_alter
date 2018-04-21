@@ -3,8 +3,8 @@ module Trailblazer
     class HandleAlerts
       extend Uber::Callable
 
-      def self.call(ctx, **)
-        AlertsHandler.call(ctx)
+      def self.call(context, **)
+        AlertsHandler.call(context)
       end
     end
   end

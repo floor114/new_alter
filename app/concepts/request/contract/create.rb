@@ -1,9 +1,13 @@
 class Request
   class Contract
     class Create < Reform::Form
+      model :request
+
       properties :title, :description
 
-      validates :title, presence: true, length: { maximum: 150 }
+      TITLE_MAX_LENGTH = 150
+
+      validates :title, presence: true, length: { maximum: TITLE_MAX_LENGTH }
       validates :description, presence: true
 
       # TODO: Add request progress validation

@@ -1,7 +1,7 @@
 class Layout
   class Cell
     module Application
-      class Light < Dark
+      class Light < ::Application::Cell
       end
     end
   end
