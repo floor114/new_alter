@@ -8,7 +8,7 @@ class Request
 
     step ::Trailblazer::Operation::Nested(::Request::Update::Present)
 
-    step ::Trailblazer::Operation::Contract::Validate(key: :request_contract_create)
+    step ::Trailblazer::Operation::Contract::Validate(key: :request)
     failure ::Trailblazer::Operation::HandleAlerts
 
     step ::Trailblazer::Operation::Contract::Persist()

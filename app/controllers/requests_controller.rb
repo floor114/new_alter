@@ -3,6 +3,7 @@ class RequestsController < ApplicationController
 
   def index
     run Request::Index
+
     render_view
   end
 
@@ -10,11 +11,13 @@ class RequestsController < ApplicationController
     run Request::Show do |result|
       return render_view :show, result: result
     end
+
     redirect_to requests_path, result['alerts']
   end
 
   def new
     run ::Request::Create::Present
+
     render_view
   end
 
@@ -22,11 +25,13 @@ class RequestsController < ApplicationController
     run ::Request::Create do |result|
       return redirect_to result['model']
     end
+
     render_view :new
   end
 
   def edit
     run ::Request::Update::Present
+
     render_view
   end
 
@@ -34,6 +39,7 @@ class RequestsController < ApplicationController
     run ::Request::Update do |result|
       return redirect_to result['model']
     end
+
     render_view :edit
   end
 end

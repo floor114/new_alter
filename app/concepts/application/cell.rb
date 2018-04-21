@@ -1,6 +1,9 @@
+# frozen_string_literal: true
+
 module Application
   class Cell < Trailblazer::Cell
     include ActionView::Helpers::TranslationHelper
+    include ActionView::Helpers::CsrfHelper
     include Devise::Controllers::Helpers
 
     def data_disable_with
@@ -11,10 +14,13 @@ module Application
       t("views.titles.#{controller_path}.#{params[:action]}", default: controller_title)
     end
 
-    def list_block(resources = model)
-      return empty_block if resources.blank?
+    def list_block(relation = model)
+      return empty_block if relation.blank?
 
-      cell("::#{resources.model_name.to_s.constantize}::Cell::List".constantize, collection: resources)
+      cell(
+        "::#{relation.model_name.to_s.constantize}::Cell::List".constantize,
+        collection: relation
+      )
     end
 
     def list?

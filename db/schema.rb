@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20180420143849) do
     t.string   "title"
     t.text     "description"
     t.uuid     "user_id"
-    t.integer  "status",      default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "status",      default: "active"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
