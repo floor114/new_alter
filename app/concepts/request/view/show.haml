@@ -4,7 +4,24 @@
       /TODO: Add request photo
       = image_tag(user.avatar.url)
     /TODO: Add admin request actions
-    -#= render partial: 'requests/request_actions', locals: { request: @request }
+    .actions.request-actions
+      = request_actions
+    -#  - case request.status
+    -#  - when 'actual'
+    -#    - if can? :edit, request
+    -#      = link_to edit_request_url(request), title: 'Редагувати' do
+    -#        %span.fa.fa-pencil
+    -#    - if can? :destroy, request
+    -#      = link_to request, method: :delete, title: 'Заархівувати', data: { confirm: 'Ви дійсно хочете заархівувати запит?' } do
+    -#        %span.fa.fa-times
+    -#  - when 'unchecked'
+    -#    - if can? :check, request
+    -#      = link_to check_request_url(request), title: 'Схвалити', remote: true do
+    -#        %span.fa.fa-check
+    -#    - if can? :decline, request
+    -#      = link_to decline_request_url(request), title: 'Відхилити' do
+    -#        %span.fa.fa-ban
+
     = cell(::Request::Cell::Categories, model)
     = cell(::Request::Cell::Info, model)
     /TODO: Add request progress block
