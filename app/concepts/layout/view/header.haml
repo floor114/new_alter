@@ -33,7 +33,7 @@
                     -#  %span#new-messages-count.number= current_user.counters(:messages)
                 -#- if can? :create, Request
                 %li
-                  = link_to t('views.actions.requests.create'), pages_about_path
+                  = link_to t('views.actions.requests.create'), new_request_path
                 -#- if can? :create, Article
                 %li
                   = link_to t('views.actions.articles.create'), pages_about_path

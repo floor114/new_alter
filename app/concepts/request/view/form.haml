@@ -1,0 +1,14 @@
+= form_for model, url: options[:url], html: { multipart: true, role: :form, class: 'item-form' } do |f|
+  = f.text_field :title, placeholder: t('activerecord.attributes.request.title'), class: 'custom-input'
+  = f.text_area :description, autofocus: true, rows: '10', placeholder: t('activerecord.attributes.request.description'), class: 'custom-textarea'
+  / TODO: Add request progress block
+  -#.required-items
+  -#  = f.fields_for :required_items do |builder|
+  -#    = render 'requests/item', f: builder, type: :required_item
+  -#  .clear-fix
+  -#  = f.link_to_add :required_items do
+  -#    %span.fa.fa-plus-square
+  / TODO: Add request photo
+  -#.file-field-container
+  -#  = f.file_field :photo, accept: 'image/png, image/jpeg'
+  = f.submit t('views.actions.publish'), class: 'button', data: data_disable_with

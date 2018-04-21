@@ -4,17 +4,11 @@ class Request
       property :title, :user, :created_at, :description
 
       def description_block
-        simple_format(truncated_description, class: description_block_class)
-      end
-
-      private
-
-      def truncated_description
-        list? ? description.truncate(530, separator: ' ') : description
-      end
-
-      def description_block_class
-        list? ? 'description description-list' : 'description'
+        if list?
+          content_tag(:p, description.truncate(530, separator: ' '), class: 'description description-list')
+        else
+          simple_format(description, class: 'description')
+        end
       end
     end
   end

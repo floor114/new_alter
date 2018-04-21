@@ -1,0 +1,5 @@
+.container
+  .request-edit
+    .group-form
+      %p.title= page_title
+      = cell(::Request::Cell::Form, model, url: request_path(model))

@@ -10,6 +10,10 @@ en:
         unapproved: Unapproved requests
         show: Request
         wall: Wall
+        new: New request
+        create: New request
+        edit: Edit request
+        update: Edit request
       articles: Articles
       profile: Profile
       messages: Messages
@@ -52,6 +56,8 @@ en:
       send: Send
       save: Save
       change: Change
+      publish: Publish
+      edit: Edit
   activerecord:
     models:
       user:
@@ -72,6 +78,8 @@ en:
         roles:
           admin: Administrator
       request:
+        title: Title
+        description: Description
         status: Status
         statuses:
           active: Active
