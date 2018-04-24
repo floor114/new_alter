@@ -48,6 +48,8 @@ en:
     actions:
       requests:
         create: Create request
+        edit: Edit request
+        change_photo: Change photo
       articles:
         create: Create article
       users:
@@ -84,7 +86,7 @@ en:
         statuses:
           active: Active
           archived: Archived
-          unconfirmed: Unchecked
+          unconfirmed: Unconfirmed
           declined: Declined
     errors:
       models:
@@ -101,3 +103,4 @@ en:
   errors:
     messages:
       nothing_to_show: Nothing to show
+      action_not_allowed: Action not allowed
