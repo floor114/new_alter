@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Devise
   module Cell
     class Links < ::Application::Cell

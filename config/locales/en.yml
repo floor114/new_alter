@@ -8,6 +8,12 @@ en:
       requests:
         index: Requests
         unapproved: Unapproved requests
+        show: Request
+        wall: Wall
+        new: New request
+        create: New request
+        edit: Edit request
+        update: Edit request
       articles: Articles
       profile: Profile
       messages: Messages
@@ -50,6 +56,8 @@ en:
       send: Send
       save: Save
       change: Change
+      publish: Publish
+      edit: Edit
   activerecord:
     models:
       user:
@@ -70,6 +78,8 @@ en:
         roles:
           admin: Administrator
       request:
+        title: Title
+        description: Description
         status: Status
         statuses:
           active: Active
@@ -82,8 +92,12 @@ en:
           attributes:
             base:
               not_found: User not found.
+        request:
+          attributes:
+            base:
+              not_found: Request not found.
       messages:
         blank: can't be blank
   errors:
     messages:
-      nothing_not_found: Nothing not found
+      nothing_to_show: Nothing to show

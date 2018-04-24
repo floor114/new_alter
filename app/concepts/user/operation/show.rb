@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User
   class Show < ::Application::Operation
     step ::Trailblazer::Operation::Model(::User, :find_by)
@@ -5,8 +7,8 @@ class User
 
     failure ::Trailblazer::Operation::HandleAlerts
 
-    def not_found!(options)
-      options['error_message'] = t('activerecord.errors.models.user.attributes.base.not_found')
+    def not_found!(context)
+      context['error_message'] = t('activerecord.errors.models.user.attributes.base.not_found')
     end
   end
 end
