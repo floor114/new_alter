@@ -8,7 +8,6 @@
   -#  .clear-fix
   -#  = f.link_to_add :required_items do
   -#    %span.fa.fa-plus-square
-  / TODO: Add request photo
-  -#.file-field-container
-  -#  = f.file_field :photo, accept: 'image/png, image/jpeg'
+  .file-field-container
+    = f.file_field :photo, accept: 'image/png, image/jpeg', class: 'file-field', placeholder: t('views.actions.requests.change_photo')
   = f.submit t('views.actions.publish'), class: 'button', data: data_disable_with

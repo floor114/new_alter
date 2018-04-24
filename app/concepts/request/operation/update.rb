@@ -8,7 +8,10 @@ class Request
 
     step ::Trailblazer::Operation::Nested(::Request::Update::Present)
 
+    step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :update?)
+
     step ::Trailblazer::Operation::Contract::Validate(key: :request)
+
     failure ::Trailblazer::Operation::HandleAlerts
 
     step ::Trailblazer::Operation::Contract::Persist()

@@ -3,21 +3,13 @@
 class Request
   class Cell
     class Show < ::Application::Cell
-      property :user, :active?
+      property :user, :photo
 
-      def request_actions
-        active_actions if active?
-      end
+      def action_link(action, icon)
+        return unless policy("#{action}?")
 
-      private
-
-      def active_actions
-        edit_link
-      end
-
-      def edit_link
-        link_to [:edit, model], title: t('views.actions.edit') do
-          content_tag(:span, nil, class: 'fa fa-pencil')
+        link_to [action, model], title: t(action, scope: 'views.actions.requests') do
+          content_tag(:span, nil, class: "fa fa-#{icon}")
         end
       end
     end

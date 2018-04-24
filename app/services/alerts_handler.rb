@@ -23,11 +23,15 @@ class AlertsHandler < ApplicationService
   end
 
   def operation_errors
-    @operation_errors ||= contract_errors_message || operation['error_message']
+    @operation_errors ||= pundit_error || contract_errors || operation['error_message']
   end
 
-  def contract_errors_message
+  def contract_errors
     operation['contract.default']&.errors&.full_messages
+  end
+
+  def pundit_error
+    I18n.t('errors.messages.action_not_allowed') if operation['result.policy.default']&.failure?
   end
 
   def message

@@ -3,7 +3,7 @@ class Request
     class Create < Reform::Form
       model :request
 
-      properties :title, :description
+      properties :title, :description, :photo
 
       TITLE_MAX_LENGTH = 150
 
