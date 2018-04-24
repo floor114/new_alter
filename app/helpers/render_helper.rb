@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RenderHelper
   def render_view(action = action_name, options = {})
     fetch_operation_result!(options)

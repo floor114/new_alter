@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlertsHandler < ApplicationService
   def initialize(operation)
     @operation = operation

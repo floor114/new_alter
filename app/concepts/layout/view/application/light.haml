@@ -5,11 +5,11 @@
     = csrf_meta_tags
     = stylesheet_link_tag :font
     = stylesheet_link_tag :application, media: :all
-    = stylesheet_link_tag general_assets_path :css
-    = stylesheet_link_tag action_assets_path :css
+    = stylesheet_link_tag ::Assets::General.call(:css, params)
+    = stylesheet_link_tag ::Assets::Action.call(:css, params)
     = javascript_include_tag :application
-    = javascript_include_tag general_assets_path :js
-    = javascript_include_tag action_assets_path :js
+    = javascript_include_tag ::Assets::General.call(:js, params)
+    = javascript_include_tag ::Assets::Action.call(:js, params)
     = favicon_link_tag :favicon
   %body
     = cell(::Layout::Cell::Header::Light)
