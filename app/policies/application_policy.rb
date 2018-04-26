@@ -8,29 +8,15 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index?
+  def allowed
+    true
+  end
+
+  def not_allowed
     false
   end
 
-  def show?
-    false
-  end
-
-  def create?
-    false
-  end
-
-  alias_method :new?, :create?
-
-  def update?
-    false
-  end
-
-  alias_method :edit?, :update?
-
-  def destroy?
-    false
-  end
+  alias_method :index?, :not_allowed
 
   private
 

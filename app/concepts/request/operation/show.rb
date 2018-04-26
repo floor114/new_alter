@@ -5,6 +5,8 @@ class Request
     step ::Trailblazer::Operation::Model(::Request, :find_by)
     failure :not_found!
 
+    step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :show?)
+
     failure ::Trailblazer::Operation::HandleAlerts
 
     def not_found!(context, **)
