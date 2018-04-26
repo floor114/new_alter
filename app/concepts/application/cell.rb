@@ -28,8 +28,8 @@ module Application
       options[:list].present?
     end
 
-    def policy(action, record = model)
-      super(record).send(action)
+    def can?(action, record = model)
+      policy(record).send("#{action}?")
     end
 
     private

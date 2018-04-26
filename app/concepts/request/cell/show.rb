@@ -6,7 +6,7 @@ class Request
       property :user, :photo
 
       def action_link(action, icon)
-        return unless policy("#{action}?")
+        return unless can?(action)
 
         link_to [action, model], title: t(action, scope: 'views.actions.requests') do
           content_tag(:span, nil, class: "fa fa-#{icon}")

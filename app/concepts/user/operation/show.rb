@@ -5,6 +5,8 @@ class User
     step ::Trailblazer::Operation::Model(::User, :find_by)
     failure :not_found!
 
+    step ::Trailblazer::Operation::Policy::Pundit(::UserPolicy, :show?)
+
     failure ::Trailblazer::Operation::HandleAlerts
 
     def not_found!(context)
