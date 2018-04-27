@@ -36,6 +36,7 @@ gem 'cells-rails'
 
 #=== AUTHENTICATION & AUTHORIZATION ============================================
 gem 'devise'
+gem 'pundit'
 
 #=== OTHER =====================================================================
 gem 'paperclip',                                                      '~> 6.0.0'

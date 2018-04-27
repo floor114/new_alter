@@ -5,6 +5,7 @@ module Application
     include ActionView::Helpers::TranslationHelper
     include ActionView::Helpers::CsrfHelper
     include Devise::Controllers::Helpers
+    include Pundit
 
     def data_disable_with
       { disable_with: t('views.actions.waiting') }
@@ -25,6 +26,10 @@ module Application
 
     def list?
       options[:list].present?
+    end
+
+    def can?(action, record = model)
+      policy(record).send("#{action}?")
     end
 
     private
