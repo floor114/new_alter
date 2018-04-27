@@ -5,10 +5,10 @@ class Request
     class Show < ::Application::Cell
       property :user, :photo
 
-      def action_link(action, icon, options = {})
+      def action_link(url, action, icon, options = {})
         return unless can?(action)
 
-        link_to [action, model], options.merge(title: t(action, scope: 'views.actions.requests')) do
+        link_to url, options.merge(title: t(action, scope: 'views.actions.requests')) do
           content_tag(:span, nil, class: "fa fa-#{icon}")
         end
       end
