@@ -16,7 +16,7 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def archive?
-    (same_user? && confirmed?) || user_with_privileges?
+    confirmed? && (same_user? || user_with_privileges?)
   end
 
   alias_method :index?, :allowed

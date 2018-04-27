@@ -13,11 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
-  resources :requests, except: :destroy do
-    member do
-      patch :confirm
-      patch :decline
-      patch :archive
-    end
+
+  resources :requests, except: :destroy
+  namespace :requests, as: :request do
+    resources :confirmed, only: :update
+    resources :declined, only: :update
+    resources :archived, only: :update
   end
 end

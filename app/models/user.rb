@@ -5,7 +5,7 @@ class User < ApplicationRecord
     admin: ADMINISTRATOR = 'administrator',
     moderator: MODERATOR = 'moderator',
     newsmaker: NEWSMAKER = 'newsmaker',
-    author: AUTHOR = 'author',
+    volunteer: VOLUNTEER = 'volunteer',
     banned: BANNED = 'banned'
   }
 

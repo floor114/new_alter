@@ -68,6 +68,9 @@ en:
         confirmed: Request was successfully confirmed
         declined: Request was successfully declined
         archived: Request was successfully archived
+      confirmation:
+        request:
+          archive: Do you realy want to archive request?
   activerecord:
     models:
       user:
