@@ -9,7 +9,7 @@ class Request
     failure ::Trailblazer::Operation::HandleAlerts
 
     def model!(context, **)
-      context['model'] = Request.active.order(created_at: :desc)
+      context['model'] = Request.confirmed.order(created_at: :desc)
     end
   end
 end

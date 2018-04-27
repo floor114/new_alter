@@ -5,6 +5,9 @@
     /TODO: Add admin request actions
     .actions.request-actions
       = action_link(:edit, :pencil)
+      = action_link(:confirm, :check, method: :patch)
+      = action_link(:decline, :ban, method: :patch)
+      = action_link(:archive, :times, method: :patch)
     -#  - case request.status
     -#  - when 'actual'
     -#    - if can? :edit, request

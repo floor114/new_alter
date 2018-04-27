@@ -2,7 +2,7 @@
 
 class Request < ApplicationRecord
   enum status: {
-    active: ACTIVE = 'active',
+    confirmed: CONFIRMED = 'confirmed',
     archived: ARCHIVED = 'archived',
     unconfirmed: UNCONFIRMED = 'unconfirmed',
     declined: DECLINED = 'declined'

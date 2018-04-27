@@ -48,4 +48,22 @@ class RequestsController < ApplicationController
 
     render_view :edit
   end
+
+  def confirm
+    run ::Request::Confirm
+
+    redirect_to result['model'], result['alerts']
+  end
+
+  def decline
+    run ::Request::Decline
+
+    redirect_to result['model'], result['alerts']
+  end
+
+  def archive
+    run ::Request::Archive
+
+    redirect_to result['model'], result['alerts']
+  end
 end

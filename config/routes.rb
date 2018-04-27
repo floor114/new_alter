@@ -13,5 +13,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: :show
-  resources :requests
+  resources :requests, except: :destroy do
+    member do
+      patch :confirm
+      patch :decline
+      patch :archive
+    end
+  end
 end
