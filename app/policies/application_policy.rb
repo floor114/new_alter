@@ -8,6 +8,16 @@ class ApplicationPolicy
     @record = record
   end
 
+  private
+
+  def same_user?
+    record_user == user
+  end
+
+  def user_with_privileges?
+    user_exist? && (user.admin? || user.moderator?)
+  end
+
   def allowed
     true
   end
@@ -16,11 +26,11 @@ class ApplicationPolicy
     false
   end
 
+  def user_exist?
+    user.present?
+  end
+
   alias_method :index?, :not_allowed
 
-  private
-
-  def same_user?
-    record_user == user
-  end
+  public :index?
 end
