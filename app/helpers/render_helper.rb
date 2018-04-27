@@ -27,7 +27,8 @@ module RenderHelper
   end
 
   def cell_class(action, options)
-    options.delete(:cell) || "#{controller_name.classify}::Cell::#{action.to_s.classify}".constantize
+    options.delete(:cell) ||
+      "#{controller_name.classify}::Cell::#{action.to_s.classify}".constantize
   end
 
   def cell_model

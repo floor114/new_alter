@@ -1,11 +1,10 @@
 .container
   .request-show
     .photo
-      /TODO: Add request photo
-      = image_tag(user.avatar.url)
+      = image_tag(photo.url)
     /TODO: Add admin request actions
     .actions.request-actions
-      = request_actions
+      = action_link(:edit, :pencil)
     -#  - case request.status
     -#  - when 'actual'
     -#    - if can? :edit, request

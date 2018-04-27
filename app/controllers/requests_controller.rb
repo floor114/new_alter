@@ -2,23 +2,27 @@ class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    run Request::Index
+    run Request::Index do
+      return render_view
+    end
 
-    render_view
+    redirect_to root_path, result['alerts']
   end
 
   def show
-    run Request::Show do |result|
-      return render_view :show, result: result
+    run Request::Show do
+      return render_view
     end
 
     redirect_to requests_path, result['alerts']
   end
 
   def new
-    run ::Request::Create::Present
+    run ::Request::Create::Present do
+      return render_view
+    end
 
-    render_view
+    redirect_to requests_path, result['alerts']
   end
 
   def create
@@ -30,9 +34,11 @@ class RequestsController < ApplicationController
   end
 
   def edit
-    run ::Request::Update::Present
+    run ::Request::Update::Present do
+      return render_view
+    end
 
-    render_view
+    redirect_to requests_path, result['alerts']
   end
 
   def update

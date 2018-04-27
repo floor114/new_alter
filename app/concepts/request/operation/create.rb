@@ -4,6 +4,9 @@ class Request
       step ::Trailblazer::Operation::Model(::Request, :new)
 
       step ::Trailblazer::Operation::Contract::Build(constant: ::Request::Contract::Create)
+
+      step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :create?)
+      failure ::Trailblazer::Operation::HandleAlerts, fail_fast: true
     end
 
     step ::Trailblazer::Operation::Nested(::Request::Create::Present)

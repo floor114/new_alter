@@ -4,7 +4,7 @@ class CreateRequests < ActiveRecord::Migration[5.0]
       t.string :title
       t.text :description
       t.uuid :user_id
-      t.string :status, default: Request::ACTIVE
+      t.string :status, default: Request::UNCONFIRMED
 
       t.timestamps
     end
