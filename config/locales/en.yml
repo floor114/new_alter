@@ -50,6 +50,9 @@ en:
         create: Create request
         edit: Edit request
         change_photo: Change photo
+        confirm: Confirm request
+        decline: Decline request
+        archive: Archive request
       articles:
         create: Create article
       users:
@@ -60,6 +63,14 @@ en:
       change: Change
       publish: Publish
       edit: Edit
+    messages:
+      request:
+        confirmed: Request was successfully confirmed
+        declined: Request was successfully declined
+        archived: Request was successfully archived
+      confirmation:
+        request:
+          archive: Do you realy want to archive request?
   activerecord:
     models:
       user:
@@ -84,7 +95,7 @@ en:
         description: Description
         status: Status
         statuses:
-          active: Active
+          confirmed: Confirmed
           archived: Archived
           unconfirmed: Unconfirmed
           declined: Declined

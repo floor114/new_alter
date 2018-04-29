@@ -2,24 +2,11 @@
   .request-show
     .photo
       = image_tag(photo.url)
-    /TODO: Add admin request actions
     .actions.request-actions
-      = action_link(:edit, :pencil)
-    -#  - case request.status
-    -#  - when 'actual'
-    -#    - if can? :edit, request
-    -#      = link_to edit_request_url(request), title: 'Редагувати' do
-    -#        %span.fa.fa-pencil
-    -#    - if can? :destroy, request
-    -#      = link_to request, method: :delete, title: 'Заархівувати', data: { confirm: 'Ви дійсно хочете заархівувати запит?' } do
-    -#        %span.fa.fa-times
-    -#  - when 'unchecked'
-    -#    - if can? :check, request
-    -#      = link_to check_request_url(request), title: 'Схвалити', remote: true do
-    -#        %span.fa.fa-check
-    -#    - if can? :decline, request
-    -#      = link_to decline_request_url(request), title: 'Відхилити' do
-    -#        %span.fa.fa-ban
+      = action_link(edit_request_path, :edit, :pencil)
+      = action_link(request_confirmed_path, :confirm, :check, method: :patch)
+      = action_link(request_declined_path, :decline, :ban, method: :patch)
+      = action_link(request_archived_path, :archive, :times, method: :patch, data: data_confirm('request.archive'))
 
     = cell(::Request::Cell::Categories, model)
     = cell(::Request::Cell::Info, model)
