@@ -26,8 +26,8 @@ class RequestsController < ApplicationController
   end
 
   def create
-    run ::Request::Create do |result|
-      return redirect_to result['model']
+    run ::Request::Create do
+      return redirect_to model
     end
 
     render_view :new
@@ -42,8 +42,8 @@ class RequestsController < ApplicationController
   end
 
   def update
-    run ::Request::Update do |result|
-      return redirect_to result['model']
+    run ::Request::Update do
+      return redirect_to model
     end
 
     render_view :edit

@@ -8,17 +8,9 @@ class Request
 
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :archive?)
 
-    step :archive!
-    success :message!
+    step ->(_, model:, **) { model.archived! }
+    step ->(context, **) { context['success_message'] = I18n.t('views.messages.request.archived') }
 
     finally ::Trailblazer::Operation::HandleAlerts
-
-    def archive!(_context, model:, **)
-      model.archived!
-    end
-
-    def message!(context, **)
-      context['success_message'] = I18n.t('views.messages.request.archived')
-    end
   end
 end

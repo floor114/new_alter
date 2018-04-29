@@ -2,11 +2,10 @@
 
 var Alerts = {
   init: function(messages) {
-    this.messages = messages;
-    this.types = { alert: 'error', notice: 'info' };
+    this.types = { alert: 'error', notice: 'success' };
 
     this.setDefaultOptions();
-    this.parse();
+    this.parse(messages);
   },
 
   setDefaultOptions: function () {
@@ -16,7 +15,7 @@ var Alerts = {
       newestOnTop: false,
       progressBar: true,
       positionClass: 'toast-top-left',
-      preventDuplicates: true,
+      preventDuplicates: false,
       onclick: null,
       showDuration: '300',
       hideDuration: '1000',
@@ -29,10 +28,10 @@ var Alerts = {
     };
   },
 
-  parse: function () {
-    Object.keys(Alerts.messages).forEach(function (key) {
+  parse: function (messages) {
+    Object.keys(messages).forEach(function (key) {
       if (Alerts.types.hasOwnProperty(key)) {
-        var message = Alerts.messages[key];
+        var message = messages[key];
 
         if (Array.isArray(message)) {
           message.forEach(function (val) {
@@ -47,5 +46,9 @@ var Alerts = {
 
   show: function (message, key) {
     toastr[Alerts.types[key]](message);
+  },
+
+  clear: function () {
+    toastr.remove();
   }
 };

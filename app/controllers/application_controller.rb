@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   private
 
+  attr_reader :model
+
   def _run_options(options)
     options.merge('current_user' => current_user)
   end

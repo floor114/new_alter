@@ -8,17 +8,9 @@ class Request
 
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :confirm?)
 
-    step :confirm!
-    success :message!
+    step ->(_, model:, **) { model.confirmed! }
+    step ->(context, **) { context['success_message'] = I18n.t('views.messages.request.confirmed') }
 
     finally ::Trailblazer::Operation::HandleAlerts
-
-    def confirm!(_context, model:, **)
-      model.confirmed!
-    end
-
-    def message!(context, **)
-      context['success_message'] = I18n.t('views.messages.request.confirmed')
-    end
   end
 end
