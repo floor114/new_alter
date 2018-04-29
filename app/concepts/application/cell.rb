@@ -11,6 +11,10 @@ module Application
       { disable_with: t('views.actions.waiting') }
     end
 
+    def data_confirm(key)
+      { confirm: t(key, scope: 'views.messages.confirmation') }
+    end
+
     def page_title
       t("views.titles.#{controller_path}.#{params[:action]}", default: controller_title)
     end

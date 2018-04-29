@@ -1,4 +1,14 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
+  enum role: {
+    admin: ADMINISTRATOR = 'administrator',
+    moderator: MODERATOR = 'moderator',
+    newsmaker: NEWSMAKER = 'newsmaker',
+    volunteer: VOLUNTEER = 'volunteer',
+    banned: BANNED = 'banned'
+  }
+
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
