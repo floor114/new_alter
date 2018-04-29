@@ -13,4 +13,5 @@ class Request < ApplicationRecord
   validates_attachment_content_type :photo, content_type: %r{\Aimage\/.*\z}
 
   belongs_to :user
+  has_many :decisions, dependent: :destroy
 end

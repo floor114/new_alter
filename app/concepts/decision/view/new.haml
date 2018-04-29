@@ -1,0 +1,14 @@
+= form_for model, url: request_decisions_path(request), remote: true, html: { class: 'item-form', data: { modal: true } } do |f|
+  .modal-body
+    = f.text_area :description, class: 'custom-textarea', rows: 7
+    /TODO: Add decision categories
+    -#.accepted-items
+    -#  = f.label :Категорії
+    -#  = f.fields_for :accepted_items do |builder|
+    -#    = render 'requests/item', f: builder, type: :accepted_item, request: request
+    -#  = f.link_to_add :accepted_items do
+    -#    %span.fa.fa-plus-square{ 'aria-hidden': true }
+  .modal-footer
+    .actions
+      = f.submit t('views.actions.send'), class: ' btn btn-shadow btn-info confirm', data: data_disable_with
+      %button.btn.btn-shadow.btn-default.cancel{ data: { dismiss: 'modal' } }= t('views.actions.cancel')

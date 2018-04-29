@@ -19,6 +19,13 @@ class RequestPolicy < ApplicationPolicy
     confirmed? && (same_user? || user_with_privileges?)
   end
 
+  def create_decision?
+    # TODO: move to query object
+    found_decisions = user.sent_decisions.where(request: record)
+
+    found_decisions.all?(&:ended?) && !same_user?
+  end
+
   alias_method :index?, :allowed
   alias_method :show?, :allowed
   alias_method :create?, :allowed
