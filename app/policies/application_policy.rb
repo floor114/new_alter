@@ -10,7 +10,7 @@ class ApplicationPolicy
 
   private
 
-  def same_user?(other_user = record_user)
+  def act_as_assigned_user?(other_user = record_user)
     user == other_user
   end
 

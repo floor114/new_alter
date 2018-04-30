@@ -4,7 +4,7 @@ class Request
   class Cell
     class Progress < ::Application::Cell
       def help_link
-        return if policy?(:same_user)
+        return if policy?(:act_as_assigned_user)
         return wait_link unless policy?(:create_decision)
 
         link_to t('views.actions.decisions.create'), new_request_decision_path(model),

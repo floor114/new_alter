@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   has_many :requests, dependent: :destroy
   has_many :received_decisions, through: :requests, source: :decisions
-  has_many :sent_decisions, class_name: 'Decision', dependent: :destroy
+  has_many :sent_decisions, class_name: Decision.name, dependent: :destroy
 
   def full_name
     @full_name ||= "#{first_name} #{last_name}"

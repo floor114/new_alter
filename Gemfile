@@ -22,6 +22,8 @@ gem 'jquery-rails'
 gem 'therubyracer'
 gem 'font-awesome-rails'
 gem 'sprockets',                                                '>= 4.0.0.beta7'
+#TODO: remove after adding webpacker
+gem 'sprockets-es6'
 
 #=== CONFIG ====================================================================
 gem 'dotenv-rails',                                                     '~> 2.2'
