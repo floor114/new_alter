@@ -3,15 +3,18 @@
     .photo
       = image_tag(photo.url)
     .actions.request-actions
-      = action_link(edit_request_path, :edit, :pencil)
-      = action_link(request_confirmed_path, :confirm, :check, method: :patch)
-      = action_link(request_declined_path, :decline, :ban, method: :patch)
-      = action_link(request_archived_path, :archive, :times, method: :patch, data: data_confirm('request.archive'))
+      = link_to_allowed edit_request_path, action: :edit, title: t('views.actions.requests.edit') do
+        %span.fa.fa-pencil
+      = link_to_allowed request_confirmed_path, action: :confirm, method: :patch, title: t('views.actions.requests.confirm') do
+        %span.fa.fa-check
+      = link_to_allowed request_declined_path, action: :decline, method: :patch, title: t('views.actions.requests.decline') do
+        %span.fa.fa-ban
+      = link_to_allowed request_archived_path, action: :archive, method: :patch, title: t('views.actions.requests.archived') do
+        %span.fa.fa-times
 
     = cell(::Request::Cell::Categories, model)
     = cell(::Request::Cell::Info, model)
-    /TODO: Add request progress block
-    -#= render partial: 'request_progress', locals: { request: @request, decision: @decision, user: @user }
+    = cell(::Request::Cell::Progress, model)
     /TODO: Add request wall
     /TODO: Add request activity history
     .tabs

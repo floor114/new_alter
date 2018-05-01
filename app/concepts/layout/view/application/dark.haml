@@ -7,9 +7,6 @@
     = stylesheet_link_tag :application, media: :all
     = stylesheet_link_tag ::Assets::General.call(:css, params)
     = stylesheet_link_tag ::Assets::Action.call(:css, params)
-    = javascript_include_tag :application
-    = javascript_include_tag ::Assets::General.call(:js, params)
-    = javascript_include_tag ::Assets::Action.call(:js, params)
     = favicon_link_tag :favicon
   %body.home-page-bg
     = cell(::Layout::Cell::Header::Dark)
@@ -17,3 +14,6 @@
       = cell(Layout::Cell::Alerts)
       = yield
     = cell(::Layout::Cell::Footer::Dark)
+  = javascript_include_tag :application
+  = javascript_include_tag ::Assets::General.call(:js, params)
+  = javascript_include_tag ::Assets::Action.call(:js, params)
