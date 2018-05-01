@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   enum role: {
-    admin: ADMINISTRATOR = 'administrator',
+    administrator: ADMINISTRATOR = 'administrator',
     moderator: MODERATOR = 'moderator',
     newsmaker: NEWSMAKER = 'newsmaker',
     volunteer: VOLUNTEER = 'volunteer',

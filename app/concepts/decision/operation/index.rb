@@ -2,9 +2,9 @@
 
 class Decision
   class Index < ::Application::Operation
-    step :model!
-
     step ::Trailblazer::Operation::Policy::Pundit(::DecisionPolicy, :index?)
+
+    step :model!
 
     failure ::Trailblazer::Operation::HandleAlerts
 
