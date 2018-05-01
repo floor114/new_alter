@@ -1,0 +1,15 @@
+.container
+  .decision-show
+    .photo
+      = image_tag(user_avatar.url)
+    /TODO: Add decision actions
+    -#.actions.decision-actions
+    -#  = link_to accept_decision_url(decision), method: :post, title: 'Підтвердити' do
+    -#    %span.fa.fa-star
+    -#  %a{ data: { target: '#closeDecisionModal', toggle: :modal }, href: '#' }
+    -#    %span.fa.fa-star-half-o
+    -#  = render 'modals/decision_close'
+    -#  = link_to deny_decision_url(decision), method: :post, title: 'Відхилити' do
+    -#    %span.fa.fa-star-o
+    = cell(::Decision::Cell::Categories, model)
+    = cell(::Decision::Cell::Info, model)

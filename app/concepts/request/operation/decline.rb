@@ -8,17 +8,9 @@ class Request
 
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :decline?)
 
-    step :decline!
-    success :message!
+    step ->(_, model:, **) { model.declined! }
+    step ->(context, **) { context['success_message'] = I18n.t('views.messages.request.declined') }
 
     finally ::Trailblazer::Operation::HandleAlerts
-
-    def decline!(_context, model:, **)
-      model.declined!
-    end
-
-    def message!(context, **)
-      context['success_message'] = I18n.t('views.messages.request.declined')
-    end
   end
 end

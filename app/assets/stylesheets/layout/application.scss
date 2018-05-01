@@ -66,6 +66,12 @@
     color: #b2b2b2;
     box-shadow: none;
     border: 1px solid #eeeeee;
+    &:hover, &:focus {
+      color: #b2b2b2;
+    }
+  }
+  &:hover, &:focus {
+    color: #fff;
   }
 }
 

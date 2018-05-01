@@ -1,6 +1,6 @@
-= form_for model, html: { multipart: true, role: :form, class: 'item-form' } do |f|
+= form_for model, html: { multipart: true, class: 'item-form' } do |f|
   = f.text_field :title, placeholder: t('activerecord.attributes.request.title'), class: 'custom-input'
-  = f.text_area :description, autofocus: true, rows: '10', placeholder: t('activerecord.attributes.request.description'), class: 'custom-textarea'
+  = f.text_area :description, autofocus: true, rows: 10, placeholder: t('activerecord.attributes.request.description'), class: 'custom-textarea'
   / TODO: Add request progress block
   -#.required-items
   -#  = f.fields_for :required_items do |builder|

@@ -7,7 +7,7 @@ en:
         about: About
       requests:
         index: Requests
-        unapproved: Unapproved requests
+        unconfirmed: Unconfirmed requests
         show: Request
         wall: Wall
         new: New request
@@ -20,7 +20,11 @@ en:
       admin:
         panel: Admin panel
       notifications: Notifications
-      decisions: Decisions
+      decisions:
+        index: Decisions
+        show: Decision
+        new: New decision
+        create: New decision
       users:
         index: Users
         sessions:
@@ -55,11 +59,14 @@ en:
         archive: Archive request
       articles:
         create: Create article
+      decisions:
+        create: Help
       users:
         change_avatar: Change avatar
       waiting: Processing...
       send: Send
       save: Save
+      cancel: Cancel
       change: Change
       publish: Publish
       edit: Edit
@@ -68,6 +75,9 @@ en:
         confirmed: Request was successfully confirmed
         declined: Request was successfully declined
         archived: Request was successfully archived
+      decision:
+        already_created: Wait for responce
+        created: Decision was successfully created
       confirmation:
         request:
           archive: Do you realy want to archive request?
@@ -109,6 +119,10 @@ en:
           attributes:
             base:
               not_found: Request not found.
+        decision:
+          attributes:
+            base:
+              not_found: Decision not found.
       messages:
         blank: can't be blank
   errors:

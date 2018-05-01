@@ -7,6 +7,8 @@ module Application
     include Devise::Controllers::Helpers
     include Pundit
 
+    DESCRIPTION_LENGTH_IN_LIST = 530
+
     def data_disable_with
       { disable_with: t('views.actions.waiting') }
     end
@@ -32,11 +34,31 @@ module Application
       options[:list].present?
     end
 
-    def can?(action, record = model)
+    def policy?(action, record = model)
       policy(record).send("#{action}?")
     end
 
+    def description_block
+      return truncated_description_block if list?
+
+      simple_format(description, class: 'description')
+    end
+
+    def link_to_allowed(name = nil, options = nil, html_options = nil, &block)
+      custom_options = block_given? ? options : html_options
+
+      return unless policy?(custom_options.delete(:action), custom_options.delete(:record) || model)
+
+      link_to(name, options, html_options, &block)
+    end
+
     private
+
+    def truncated_description_block
+      content_tag(:p, class: 'description description-list') do
+        description.truncate(DESCRIPTION_LENGTH_IN_LIST, separator: ' ')
+      end
+    end
 
     def controller_title
       t("views.titles.#{controller_path}.all", default: t('views.app_name'))

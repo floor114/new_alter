@@ -2,7 +2,7 @@ class RequestPolicy < ApplicationPolicy
   delegate :unconfirmed?, :confirmed?, to: :record
 
   def update?
-    unconfirmed? && same_user?
+    unconfirmed? && act_as_assigned_user?
   end
 
   alias_method :edit?, :update?
@@ -16,7 +16,14 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def archive?
-    confirmed? && (same_user? || user_with_privileges?)
+    confirmed? && (act_as_assigned_user? || user_with_privileges?)
+  end
+
+  def create_decision?
+    # TODO: move to query object
+    found_decisions = user.sent_decisions.where(request: record)
+
+    found_decisions.all?(&:ended?) && !act_as_assigned_user?
   end
 
   alias_method :index?, :allowed

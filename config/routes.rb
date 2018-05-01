@@ -14,10 +14,14 @@ Rails.application.routes.draw do
 
   resources :users, only: :show
 
-  resources :requests, except: :destroy
+  resources :requests, except: :destroy do
+    resources :decisions, only: %i[new create]
+  end
   namespace :requests, as: :request do
     resources :confirmed, only: :update
     resources :declined, only: :update
     resources :archived, only: :update
   end
+
+  resources :decisions, only: %i[index show]
 end

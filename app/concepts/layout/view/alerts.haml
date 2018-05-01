@@ -1,2 +1,1 @@
-:javascript
-  Alerts.init(#{parent_controller.flash.to_h.to_json})
+#alerts-container{ data: { messages: CGI::escapeHTML(parent_controller.flash.to_h.to_json) } }
