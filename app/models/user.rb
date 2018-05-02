@@ -20,6 +20,8 @@ class User < ApplicationRecord
   has_many :received_decisions, through: :requests, source: :decisions
   has_many :sent_decisions, class_name: Decision.name, dependent: :destroy
 
+  scope :visible, ->(user) { where(role: [VOLUNTEER, BANNED, NEWSMAKER]).where.not(id: user&.id) }
+
   def full_name
     @full_name ||= "#{first_name} #{last_name}"
   end

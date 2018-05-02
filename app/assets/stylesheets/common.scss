@@ -381,3 +381,37 @@ h1, h2 {
   width: 30%;
   padding: 15px 25px;
 }
+
+.user-index {
+  padding: 20px;
+
+  .user-box {
+    background-color: #ffffff;
+    border: 1px solid #e7eaec;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    .role {
+      color: #666666;
+      padding-top: 5px;
+      font-size: 14px;
+    }
+
+    .author {
+      margin-bottom: 15px;
+    }
+
+    .info-field {
+      width: 100%;
+      font-size: 13px;
+
+      .fa {
+        margin-right: 2px;
+      }
+    }
+
+    .phone {
+      margin-top: 5px;
+    }
+  }
+}
