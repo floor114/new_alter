@@ -99,7 +99,11 @@ en:
         phone_number: Phone number
         role: Role
         roles:
-          admin: Administrator
+          administrator: Administrator
+          moderator: Moderator
+          newsmaker: Newmaker
+          banned: Banned
+          volunteer: Volunteer
       request:
         title: Title
         description: Description

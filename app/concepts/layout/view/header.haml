@@ -59,7 +59,9 @@
                     -#  %span.number= current_user.counters(:decisions)
                 -#- if can? :change_ban_status, User
                 %li
-                  = link_to t('views.titles.users.index'), pages_about_path
+                  = link_to_allowed t('views.titles.users.index'),
+                                    users_path,
+                                    action: :index, record: User
                 %li
                   = link_to t('views.titles.settings'), edit_user_registration_path
                 %li
