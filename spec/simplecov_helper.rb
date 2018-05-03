@@ -1,4 +1,5 @@
 require 'simplecov'
+require 'codecov'
 
 # save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -37,6 +38,6 @@ SimpleCov.start do
   add_group 'Policies', 'app/policies'
 end
 
-require 'codecov'
-
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CODECOV_TOKEN']
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
