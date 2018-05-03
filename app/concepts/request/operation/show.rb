@@ -5,5 +5,6 @@ class Request
     step ::Trailblazer::Operation::Nested(::Request::Find)
 
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :show?)
+    failure ::Trailblazer::Operation::HandleAlerts
   end
 end

@@ -24,4 +24,9 @@ Rails.application.routes.draw do
   end
 
   resources :decisions, only: %i[index show]
+  namespace :decisions, as: :decision do
+    resources :accepted, only: :update
+    resources :partly_accepted, only: :update
+    resources :rejected, only: :update
+  end
 end

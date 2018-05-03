@@ -9,7 +9,7 @@
         %span.fa.fa-check
       = link_to_allowed request_declined_path, action: :decline, method: :patch, title: t('views.actions.requests.decline') do
         %span.fa.fa-ban
-      = link_to_allowed request_archived_path, action: :archive, method: :patch, title: t('views.actions.requests.archived') do
+      = link_to_allowed request_archived_path, action: :archive, method: :patch, title: t('views.actions.requests.archive') do
         %span.fa.fa-times
 
     = cell(::Request::Cell::Categories, model)

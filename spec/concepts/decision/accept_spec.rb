@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Decision::Show do
+describe Decision::Accept do
   let(:user) { create :user }
   let(:params) { { id: decision.id } }
   let(:decision) { create :decision, :created, request: request }
@@ -9,6 +9,14 @@ describe Decision::Show do
   subject(:result) { fetch_operation }
 
   context 'with policy that is' do
+    shared_examples 'success result' do
+      it do
+        is_expected.to be_success
+        expect(result['model'].status).to eq(Decision::ACCEPTED)
+        expect(result['alerts']).to be_present
+      end
+    end
+
     shared_examples 'failure result' do
       it do
         is_expected.to be_failure
@@ -17,16 +25,19 @@ describe Decision::Show do
       end
     end
 
-    context 'correct' do
-      it do
-        is_expected.to be_success
-        expect(result['model']).to eq(decision)
-        expect(result['model'].status).to eq(Decision::READ)
-        expect(result['model'].read?).to be_truthy
+    context 'correct because of same request user and' do
+      context 'created decision' do
+        it_behaves_like 'success result'
+      end
+
+      context 'read decision' do
+        let(:decision) { create :decision, :read, request: request }
+
+        it_behaves_like 'success result'
       end
     end
 
-    context 'not correct because of ' do
+    context 'not correct because of' do
       context 'user' do
         let(:new_user) { create :user }
         let(:request) { create :request, user: new_user }
