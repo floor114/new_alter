@@ -1,9 +1,5 @@
 class Request
-  class Finder < Trailblazer::Finder
-    features Sorting
-
-    adapters ActiveRecord
-
+  class Finder < ::Application::Finder
     entity_type { Request }
 
     sortable_by :created_at, :updated_at

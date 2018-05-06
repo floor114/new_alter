@@ -51,8 +51,8 @@ module RenderHelper
   end
 
   def choose_layout(options)
-    layout = options.delete(:layout)
-
-    layout.nil? ? ::Layout::Cell::Application::Light : layout
+    options.delete(:layout).tap do |layout|
+      return ::Layout::Cell::Application::Light if layout.nil?
+    end
   end
 end
