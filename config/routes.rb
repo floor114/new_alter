@@ -12,7 +12,14 @@ Rails.application.routes.draw do
     get :about
   end
 
-  resources :users, only: %i[index show]
+  resources :users, only: %i[index show] do
+    namespace :requests, as: :request do
+      resources :confirmed, only: :index
+      resources :unconfirmed, only: :index
+      resources :archived, only: :index
+      resources :declined, only: :index
+    end
+  end
 
   resources :requests, except: :destroy do
     resources :decisions, only: %i[new create]

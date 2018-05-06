@@ -29,10 +29,11 @@ gem 'sprockets-es6'
 gem 'dotenv-rails',                                                     '~> 2.2'
 gem 'tzinfo-data',               platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#=== FEATURES ==================================================================
+#=== TRAILBLAZER ==================================================================
 gem 'trailblazer'
 gem 'trailblazer-rails'
 gem 'trailblazer-cells'
+gem 'trailblazer-finder'
 gem 'cells-haml'
 gem 'cells-rails'
 
@@ -40,7 +41,7 @@ gem 'cells-rails'
 gem 'devise'
 gem 'pundit'
 
-#=== OTHER =====================================================================
+#=== FEATURES =====================================================================
 gem 'paperclip',                                                      '~> 6.0.0'
 gem 'aws-sdk-s3',                                                         '~> 1'
 
