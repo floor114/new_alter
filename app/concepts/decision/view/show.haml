@@ -2,14 +2,12 @@
   .decision-show
     .photo
       = image_tag(user_avatar.url)
-    /TODO: Add decision actions
-    -#.actions.decision-actions
-    -#  = link_to accept_decision_url(decision), method: :post, title: 'Підтвердити' do
-    -#    %span.fa.fa-star
-    -#  %a{ data: { target: '#closeDecisionModal', toggle: :modal }, href: '#' }
-    -#    %span.fa.fa-star-half-o
-    -#  = render 'modals/decision_close'
-    -#  = link_to deny_decision_url(decision), method: :post, title: 'Відхилити' do
-    -#    %span.fa.fa-star-o
+    .actions.decision-actions
+      = link_to_allowed decision_accepted_path, action: :accept, method: :patch, title: t('views.actions.decisions.accept') do
+        %span.fa.fa-star
+      = link_to_allowed decision_partly_accepted_path, action: :partly_accept, method: :patch, title: t('views.actions.decisions.partly_accept') do
+        %span.fa.fa-star-half-o
+      = link_to_allowed decision_rejected_path, action: :reject, method: :patch, title: t('views.actions.decisions.reject') do
+        %span.fa.fa-star-o
     = cell(::Decision::Cell::Categories, model)
     = cell(::Decision::Cell::Info, model)
