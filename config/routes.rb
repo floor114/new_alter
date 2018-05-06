@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     get :about
   end
 
-  resources :users, only: :show
+  resources :users, only: %i[index show]
 
   resources :requests, except: :destroy do
     resources :decisions, only: %i[new create]

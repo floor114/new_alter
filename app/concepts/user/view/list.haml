@@ -1,0 +1,12 @@
+.col-lg-4
+  .user-box
+    .col-sm-5
+      .text-center
+        = link_to_if policy?(:show), image_tag(avatar.url, class: 'img-circle img-responsive'), model
+        .role= t(role, scope: 'activerecord.attributes.user.roles')
+    .col-sm-7.info
+      .author= link_to_if policy?(:show), full_name, model
+      /TODO: Add user address
+      = info_block('asd', :address, 'map-marker')
+      = info_block(phone_number, :phone, :phone)
+    .clearfix

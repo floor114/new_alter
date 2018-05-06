@@ -1,6 +1,6 @@
 class DecisionPolicy < ApplicationPolicy
   delegate :request, to: :record
-  delegate :user, to: :request, prefix: true
+  delegate :user, to: :request, prefix: true, allow_nil: true
 
   def show?
     act_as_assigned_user?(request_user)

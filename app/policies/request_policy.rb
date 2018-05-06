@@ -28,5 +28,5 @@ class RequestPolicy < ApplicationPolicy
 
   alias_method :index?, :allowed
   alias_method :show?, :allowed
-  alias_method :create?, :allowed
+  alias_method :create?, :user_exist?
 end
