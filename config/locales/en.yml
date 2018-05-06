@@ -61,6 +61,7 @@ en:
         create: Create article
       decisions:
         create: Help
+        reject: Reject decision
       users:
         change_avatar: Change avatar
       waiting: Processing...
@@ -78,6 +79,9 @@ en:
       decision:
         already_created: Wait for responce
         created: Decision was successfully created
+        accepted: Decision was successfully accepted
+        partly_accepted: Decision was successfully partly accepted
+        rejected: Decision was successfully rejected
       confirmation:
         request:
           archive: Do you realy want to archive request?

@@ -1,10 +1,14 @@
 class DecisionPolicy < ApplicationPolicy
-  delegate :request, to: :record
+  delegate :request, :created?, :read?, :ended?, to: :record
   delegate :user, to: :request, prefix: true, allow_nil: true
 
   def show?
-    act_as_assigned_user?(request_user)
+    (read? || created?) && act_as_assigned_user?(request_user)
   end
+
+  alias_method :accept?, :show?
+  alias_method :partly_accept?, :accept?
+  alias_method :reject?, :accept?
 
   def create?
     # TODO: move to query object
