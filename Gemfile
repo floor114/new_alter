@@ -59,6 +59,8 @@ end
 
 group :development, :test do
   gem 'rubocop', require: false
+  gem 'simplecov', require: false
+  gem 'codecov', :require => false
   gem 'rspec-rails'
   gem 'pry-rails'
   gem 'faker'

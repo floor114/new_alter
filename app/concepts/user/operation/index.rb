@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-class Decision
+class User
   class Index < ::Application::Operation
-    step ::Trailblazer::Operation::Policy::Pundit(::DecisionPolicy, :index?)
-
     step :model!
+
+    step ::Trailblazer::Operation::Policy::Pundit(::UserPolicy, :index?)
 
     failure ::Trailblazer::Operation::HandleAlerts
 
     def model!(context, current_user:, **)
       # TODO: move to query object
-      context['model'] = current_user.received_decisions.order(:status, created_at: :desc)
+      context['model'] = User.visible(current_user).order(:created_at)
     end
   end
 end

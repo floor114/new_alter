@@ -1,7 +1,7 @@
 class Request
   class Update < ::Application::Operation
     class Present < ::Application::Operation
-      step ::Trailblazer::Operation::Model(::Request, :find_by)
+      step ::Trailblazer::Operation::Nested(::Request::Find)
 
       step ::Trailblazer::Operation::Contract::Build(constant: ::Request::Contract::Create)
 

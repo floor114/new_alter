@@ -9,6 +9,7 @@ class Request
     failure ::Trailblazer::Operation::HandleAlerts
 
     def model!(context, **)
+      # TODO: move to query object
       context['model'] = Request.confirmed.order(created_at: :desc)
     end
   end

@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def user_with_privileges?
-    user_exist? && (user.admin? || user.moderator?)
+    user_exist? && (user.administrator? || user.moderator?)
   end
 
   def allowed
