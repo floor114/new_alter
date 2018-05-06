@@ -5,7 +5,7 @@ module RenderHelper
     fetch_operation_result!(options)
     render_flashes!(options.delete(:flashes) || operation_flashes)
     render html: cell(cell_class(action, options), options.delete(:model) || cell_model,
-                      layout: options.delete(:layout) || ::Layout::Cell::Application::Light,
+                      layout: choose_layout(options),
                       context: options)
   end
 
@@ -48,5 +48,11 @@ module RenderHelper
 
   def cell_model
     @form.presence || @model
+  end
+
+  def choose_layout(options)
+    options.delete(:layout).tap do |layout|
+      return ::Layout::Cell::Application::Light if layout.nil?
+    end
   end
 end

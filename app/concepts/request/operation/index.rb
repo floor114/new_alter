@@ -2,15 +2,16 @@
 
 class Request
   class Index < ::Application::Operation
-    step :model!
-
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :index?)
+
+    step :setup_finder!
+
+    step ::Trailblazer::Operation::Finder(Request::Finder, :all, ::Request)
 
     failure ::Trailblazer::Operation::HandleAlerts
 
-    def model!(context, **)
-      # TODO: move to query object
-      context['model'] = Request.confirmed.order(created_at: :desc)
+    def setup_finder!(context, **)
+      context['finder.params'] = { status: ::Request::CONFIRMED, sort: 'created_at desc' }
     end
   end
 end
