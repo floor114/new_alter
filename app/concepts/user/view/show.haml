@@ -31,15 +31,15 @@
         .contact-info
           = phone_number_block
     .tabs
-      %ul.nav.nav-tabs.nav-justified
+      %ul#tab-links-container.nav.nav-tabs.nav-justified
         %li.active
-          = link_to t('activerecord.attributes.request.statuses.confirmed'), root_path
+          = link_to t('activerecord.attributes.request.statuses.confirmed'), user_request_confirmed_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.archived'), root_path
+          = link_to t('activerecord.attributes.request.statuses.archived'), user_request_archived_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.unconfirmed'), root_path
+          = link_to t('activerecord.attributes.request.statuses.unconfirmed'), user_request_unconfirmed_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.declined'), root_path
+          = link_to t('activerecord.attributes.request.statuses.declined'), user_request_declined_index_path(model), data: { tab: true }
         -#- if can? :activity, user
         -#  %li
         -#    = link_to 'Активність', activity_user_url, remote: true
@@ -47,5 +47,5 @@
         -#  %li
         -#    = link_to 'Cтатистика', statistic_user_url, remote: true
       .tab-content
-        .tab-pane.active
+        #tab-container.tab-pane.active
           %p.nothing-to-show= t('errors.messages.nothing_to_show')

@@ -15,3 +15,4 @@
 //= require bootstrap-sprockets
 //= require alerts
 //= require modals
+//= require tabs

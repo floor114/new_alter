@@ -20,6 +20,8 @@ class RequestPolicy < ApplicationPolicy
   end
 
   def create_decision?
+    return false unless user_exist?
+
     # TODO: move to query object
     found_decisions = user.sent_decisions.where(request: record)
 
