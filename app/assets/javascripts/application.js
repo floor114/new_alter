@@ -13,6 +13,8 @@
 //= require jquery3
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require cocoon
 //= require alerts
 //= require modals
 //= require tabs
+//= require extensions

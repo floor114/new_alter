@@ -97,7 +97,6 @@ h1, h2 {
 }
 
 .request-show .title, .article-show .title, .decision-show .title {
-  text-align: justify;
   margin-top: 25px;
   font-size: 1.9em;
 }
@@ -123,7 +122,7 @@ h1, h2 {
   margin: 20px 0;
 }
 
-.request-show .goals button, .article-show .goals button, .decision-show .goals button {
+.request-show .goals .button, .article-show .goals .button, .decision-show .goals .button {
   float: right;
 }
 
@@ -414,4 +413,15 @@ h1, h2 {
       margin-top: 5px;
     }
   }
+}
+
+.progress-bar {
+  min-width: 3em;
+}
+
+.nested-items {
+  padding: 20px;
+  margin: 20px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }

@@ -32,7 +32,7 @@ class Tab {
     $(document).ready( () => {
       let activeTab = $(this.linksContainer).find(`.${this.activeClass}`).find('a');
 
-      if (activeTab != undefined) {
+      if (activeTab[0] != undefined) {
         this.load(activeTab.attr('href'))
       }
     });

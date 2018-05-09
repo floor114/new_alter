@@ -14,4 +14,6 @@ class Request < ApplicationRecord
 
   belongs_to :user
   has_many :decisions, dependent: :destroy
+  has_many :required_items, dependent: :destroy, autosave: true
+  has_many :categories, through: :required_items
 end

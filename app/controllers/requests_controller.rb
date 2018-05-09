@@ -19,7 +19,7 @@ class RequestsController < ApplicationController
 
   def new
     run ::Request::Create::Present do
-      return render_view
+      return render_view :new, prepopulate: true
     end
 
     redirect_to requests_path, result['alerts']
