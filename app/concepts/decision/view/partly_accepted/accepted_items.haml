@@ -1,0 +1,3 @@
+.nested-items
+  = f.fields_for :accepted_items do |accepted_item|
+    = render view: 'partly_accepted/accepted_item_fields', locals: { f: accepted_item, select_options: select_options }

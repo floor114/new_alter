@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   resources :decisions, only: %i[index show]
   namespace :decisions, as: :decision do
     resources :accepted, only: :update
-    resources :partly_accepted, only: :update
+    resources :partly_accepted, only: %i[edit update]
     resources :rejected, only: :update
   end
 end

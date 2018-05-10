@@ -4,6 +4,8 @@ describe Decision::Reject do
   let(:user) { create :user }
   let(:params) { { id: decision.id } }
   let(:decision) { create :decision, :created, request: request }
+  let!(:accepted_item1) { create :accepted_item, decision: decision }
+  let!(:accepted_item2) { create :accepted_item, decision: decision }
   let(:request) { create :request, user: user }
 
   subject(:result) { fetch_operation }
@@ -13,6 +15,8 @@ describe Decision::Reject do
       it do
         is_expected.to be_success
         expect(result['model'].status).to eq(Decision::REJECTED)
+        expect(result['model'].accepted_items.first.helped_count).to eq(::AcceptedItem::ZERO_HELP)
+        expect(result['model'].accepted_items.second.helped_count).to eq(::AcceptedItem::ZERO_HELP)
         expect(result['alerts']).to be_present
       end
     end
@@ -21,6 +25,8 @@ describe Decision::Reject do
       it do
         is_expected.to be_failure
         expect(result['model'].status).to eq(decision.status)
+        expect(result['model'].accepted_items.first.helped_count).to be_nil
+        expect(result['model'].accepted_items.second.helped_count).to be_nil
         expect(result['alerts']).to be_present
       end
     end
@@ -66,7 +72,7 @@ describe Decision::Reject do
   end
 
   context 'without id in params' do
-    let(:decision) { instance_double(Decision, id: '') }
+    let(:params) { { id: '' } }
 
     it { is_expected.to be_failure }
   end

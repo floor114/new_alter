@@ -48,6 +48,8 @@ describe Request::Create do
           expect(result['model'].title).to eq(title)
           expect(result['model'].description).to eq(description)
           expect(result['model'].user).to eq(user)
+          expect(result['model'].required_items.pluck(:goal)).to include(goal1, goal2)
+          expect(result['model'].required_items.pluck(:category_id)).to include(category1.id, category2.id)
         end
       end
 

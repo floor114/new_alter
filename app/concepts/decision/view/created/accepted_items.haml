@@ -1,0 +1,8 @@
+.nested-items
+  = f.fields_for :accepted_items do |accepted_item|
+    = render view: 'created/accepted_item_fields', locals: { f: accepted_item, select_options: select_options }
+  .text-center
+    = link_to_add_association f, :accepted_items, force_non_association_create: true,
+                                                  class: 'add-link',
+                                                  partial: 'created/accepted_item_fields' do
+      %span.fa.fa-plus-square

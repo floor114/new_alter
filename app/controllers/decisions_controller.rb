@@ -17,7 +17,7 @@ class DecisionsController < ApplicationController
 
   def new
     run ::Decision::Create::Present do
-      return render_modal
+      return render_modal :new, prepopulate: true
     end
 
     redirect_to model.request, result['alerts']
