@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AcceptedItem
-  class Contract
+  module Contract
     class PartlyAccept < Reform::Form
       include Trailblazer::Reform::Nested
 

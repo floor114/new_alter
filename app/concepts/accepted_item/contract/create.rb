@@ -1,5 +1,5 @@
 class AcceptedItem
-  class Contract
+  module Contract
     class Create < Reform::Form
       include Trailblazer::Reform::Nested
 

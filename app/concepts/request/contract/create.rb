@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Request
-  class Contract
+  module Contract
     class Create < Reform::Form
       include Reform::Form::ModelReflections
 

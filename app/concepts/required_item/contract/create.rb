@@ -1,5 +1,5 @@
 class RequiredItem
-  class Contract
+  module Contract
     class Create < Reform::Form
       include Trailblazer::Reform::Nested
 

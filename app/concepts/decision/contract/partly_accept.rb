@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Decision
-  class Contract
+  module Contract
     class PartlyAccept < Reform::Form
       include Reform::Form::ModelReflections
 
