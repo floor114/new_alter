@@ -2,7 +2,7 @@
 
 module Trailblazer
   class Operation
-    def self.Finder(finder_class, action, entity_type)
+    def self.Finder(finder_class, action, entity_type = nil)
       step = Finder.new(finder_class, action, entity_type)
 
       [step, name: 'finder']

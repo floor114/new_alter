@@ -73,6 +73,7 @@ en:
       change: Change
       publish: Publish
       edit: Edit
+      back: Back
     messages:
       request:
         confirmed: Request was successfully confirmed

@@ -30,7 +30,7 @@ gem 'select2-rails'
 gem 'dotenv-rails',                                                     '~> 2.2'
 gem 'tzinfo-data',               platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-#=== TRAILBLAZER ==================================================================
+#=== TRAILBLAZER ===============================================================
 gem 'trailblazer'
 gem 'trailblazer-rails'
 gem 'trailblazer-cells'
@@ -42,10 +42,11 @@ gem 'cells-rails'
 gem 'devise'
 gem 'pundit'
 
-#=== FEATURES =====================================================================
+#=== FEATURES ==================================================================
 gem 'paperclip',                                                      '~> 6.0.0'
 gem 'aws-sdk-s3',                                                         '~> 1'
 gem 'cocoon'
+gem 'administrate',                              github: 'floor114/administrate'
 
 #=== DEV & TEST ================================================================
 group :development do
