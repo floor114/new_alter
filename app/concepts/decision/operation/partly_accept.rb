@@ -4,11 +4,21 @@ require_dependency 'decision/operation/find'
 
 class Decision
   class PartlyAccept < ::Application::Operation
-    step ::Trailblazer::Operation::Nested(::Decision::Find)
+    class Present < ::Application::Operation
+      step ::Trailblazer::Operation::Nested(::Decision::Find)
 
-    step ::Trailblazer::Operation::Policy::Pundit(::DecisionPolicy, :partly_accept?)
+      step ::Trailblazer::Operation::Contract::Build(constant: ::Decision::Contract::PartlyAccept)
 
-    # TODO: Implement categories accepting logic
+      step ::Trailblazer::Operation::Policy::Pundit(::DecisionPolicy, :partly_accept?)
+      failure ::Trailblazer::Operation::HandleAlerts, fail_fast: true
+    end
+
+    step ::Trailblazer::Operation::Nested(::Decision::PartlyAccept::Present)
+
+    step ::Trailblazer::Operation::Contract::Validate(key: :decision)
+
+    step ::Trailblazer::Operation::Contract::Persist()
+
     step ->(_, model:, **) { model.partly_accepted! }
     step :message!
 

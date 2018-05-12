@@ -5,9 +5,10 @@
     .actions.decision-actions
       = link_to_allowed decision_accepted_path, action: :accept, method: :patch, title: t('views.actions.decisions.accept') do
         %span.fa.fa-star
-      = link_to_allowed decision_partly_accepted_path, action: :partly_accept, method: :patch, title: t('views.actions.decisions.partly_accept') do
+      = link_to_allowed edit_decision_partly_accepted_path, action: :partly_accept, data: { modal: true }, title: t('views.actions.decisions.partly_accept') do
         %span.fa.fa-star-half-o
       = link_to_allowed decision_rejected_path, action: :reject, method: :patch, title: t('views.actions.decisions.reject') do
         %span.fa.fa-star-o
-    = cell(::Decision::Cell::Categories, model)
+    .categories
+      = cell(::Decision::Cell::Category, collection: accepted_items)
     = cell(::Decision::Cell::Info, model)

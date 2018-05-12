@@ -5,4 +5,5 @@
         = link_to_if policy?(:show), image_tag(user_avatar.url), model
     .col-md-8
       = cell(::Decision::Cell::Info, model, list: true)
-      = cell(::Decision::Cell::Categories, model)
+      .categories
+        = cell(::Decision::Cell::Category, collection: accepted_items)

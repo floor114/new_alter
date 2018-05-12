@@ -3,7 +3,7 @@ module Decisions
     def update
       run ::Decision::Reject
 
-      redirect_to result['model'], result['alerts']
+      redirect_to decisions_path, result['alerts']
     end
   end
 end

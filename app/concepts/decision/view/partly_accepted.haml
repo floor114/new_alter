@@ -1,8 +1,7 @@
 .group-modal-form
-  = form_for model, url: request_decisions_path(request), remote: true, html: { class: 'item-form', data: { modal: true } } do |f|
+  = form_for model, url: decision_partly_accepted_path(model), remote: true, html: { data: { modal: true } } do |f|
     .modal-body
-      = f.text_area :description, class: 'custom-textarea', rows: 7
-      = cell(::Decision::Cell::Created::AcceptedItems, f)
+      = cell(::Decision::Cell::PartlyAccepted::AcceptedItems, f)
     .modal-footer
       .actions
         = f.submit t('views.actions.send'), class: ' btn btn-shadow btn-info confirm', data: data_disable_with

@@ -19,8 +19,7 @@ class Request
       properties :title, :description, :photo
 
       validates :title, presence: true, length: { maximum: TITLE_MAX_LENGTH }
-      validates :description, presence: true
-      validates :required_items, presence: true
+      validates :description, :required_items, presence: true
 
       private
 

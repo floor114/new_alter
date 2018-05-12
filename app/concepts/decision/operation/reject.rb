@@ -8,10 +8,14 @@ class Decision
 
     step ::Trailblazer::Operation::Policy::Pundit(::DecisionPolicy, :reject?)
 
-    # TODO: Implement categories rejecting logic
     step ->(_, model:, **) { model.rejected! }
+    success :update_helped_count!
     step ->(context, **) { context['success_message'] = I18n.t('views.messages.decision.rejected') }
 
     finally ::Trailblazer::Operation::HandleAlerts
+
+    def update_helped_count!(_ctx, model:, **)
+      model.accepted_items.update_all(helped_count: ::AcceptedItem::ZERO_HELP) # rubocop:disable all
+    end
   end
 end
