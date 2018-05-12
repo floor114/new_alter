@@ -47,6 +47,7 @@ gem 'paperclip',                                                      '~> 6.0.0'
 gem 'aws-sdk-s3',                                                         '~> 1'
 gem 'cocoon'
 gem 'administrate',                              github: 'floor114/administrate'
+gem 'faker'
 
 #=== DEV & TEST ================================================================
 group :development do
@@ -67,7 +68,6 @@ group :development, :test do
   gem 'codecov', :require => false
   gem 'rspec-rails'
   gem 'pry-rails'
-  gem 'faker'
   gem 'guard-rspec'
 end
 
