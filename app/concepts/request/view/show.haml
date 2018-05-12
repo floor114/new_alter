@@ -12,9 +12,14 @@
       = link_to_allowed request_archived_path, action: :archive, method: :patch, title: t('views.actions.requests.archive') do
         %span.fa.fa-times
 
-    = cell(::Request::Cell::Categories, model)
+    .categories
+      = cell(::Request::Cell::Category, collection: categories)
     = cell(::Request::Cell::Info, model)
-    = cell(::Request::Cell::Progress, model)
+
+    .goals
+      = cell(::Request::Cell::RequiredItemProgress, collection: required_items)
+      = help_link
+
     /TODO: Add request wall
     /TODO: Add request activity history
     .tabs

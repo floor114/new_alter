@@ -82,6 +82,9 @@ en:
         accepted: Decision was successfully accepted
         partly_accepted: Decision was successfully partly accepted
         rejected: Decision was successfully rejected
+      required_item:
+        progress: '%{first} from %{second}'
+        category: '%{category}: '
       confirmation:
         request:
           archive: Do you realy want to archive request?

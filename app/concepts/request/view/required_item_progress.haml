@@ -1,0 +1,7 @@
+.progress-title
+  %p= t('views.messages.required_item.category', category: category.name)
+  %small= t('views.messages.required_item.progress', first: current_count, second: goal)
+.progress
+  .progress-bar{aria: { aria_valuenow: progress }, role: 'progressbar', style: "width: #{progress}%; background: ##{category.color};"}
+    .percents
+      %p= number_to_percentage(progress, precision: 0)

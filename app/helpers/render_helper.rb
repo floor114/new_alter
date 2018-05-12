@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+# TODO: Refactor render helper
+
 module RenderHelper
   def render_view(action = action_name, options = {})
     fetch_operation_result!(options)
     render_flashes!(options.delete(:flashes) || operation_flashes)
-    render html: cell(cell_class(action, options), options.delete(:model) || cell_model,
+    render html: cell(cell_class(action, options), options.delete(:model) || cell_model(options),
                       layout: choose_layout(options),
                       context: options)
   end
@@ -46,8 +48,12 @@ module RenderHelper
       "#{controller_name.classify}::Cell::#{action.to_s.classify}".constantize
   end
 
-  def cell_model
-    @form.presence || @model
+  def cell_model(options)
+    @form.presence.tap do |form|
+      return @model if form.blank?
+
+      form.prepopulate! if options.delete(:prepopulate)
+    end
   end
 
   def choose_layout(options)

@@ -3,9 +3,22 @@ require 'rails_helper'
 describe Request::Create do
   let(:user) { create :user }
   let(:params) { { request: request_params } }
-  let(:request_params) { { title: title, description: description } }
+  let(:request_params) {
+    {
+      title: title,
+      description: description,
+      required_items: required_items_params
+    }
+  }
   let(:title) { Faker::Lorem.sentence }
   let(:description) { Faker::Lorem.paragraph }
+  let(:required_items_params) { [required_item1_params, required_item2_params] }
+  let(:required_item1_params) { { category_id: category1.id, goal: goal1 } }
+  let(:required_item2_params) { { category_id: category2.id, goal: goal2 } }
+  let(:goal1) { 666 }
+  let(:goal2) { 777 }
+  let(:category1) { create :category }
+  let(:category2) { create :category }
 
   subject(:result) { fetch_operation }
 
@@ -76,6 +89,38 @@ describe Request::Create do
 
             it_behaves_like 'failure result', %i[description]
           end
+
+          context 'required items' do
+            let(:required_items_params) { [] }
+
+            it_behaves_like 'failure result', %i[required_items]
+          end
+
+          context 'some required item' do
+            let(:required_item1_params) { { } }
+
+            it_behaves_like 'failure result', %i[required_items.goal required_items.category_id]
+          end
+
+          context 'required item' do
+            context 'category id' do
+              let(:category1) { instance_double(Category, id: '') }
+
+              it_behaves_like 'failure result', %i[required_items.category_id]
+            end
+
+            context 'goal' do
+              let(:goal2) { '' }
+
+              it_behaves_like 'failure result', %i[required_items.goal]
+            end
+          end
+        end
+
+        context 'required item goal not number' do
+          let(:goal1) { 'qwe' }
+
+          it_behaves_like 'failure result', %i[required_items.goal]
         end
 
         context 'long title' do

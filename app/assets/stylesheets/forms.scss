@@ -121,6 +121,32 @@
     background: #d52845;
     border: none;
   }
+  .form-control {
+    &:focus {
+      border-color: #8e8e9b;
+      box-shadow: 0 0 3px -1px #2B2B39;
+    }
+  }
+  .goal-field {
+    width: 80%;
+    float: left;
+  }
+  .remove-link {
+    margin-left: 10px;
+    margin-top: 6px;
+    font-size: 18px;
+    color: #d52845;
+  }
+  .add-link {
+    text-align: center;
+    font-size: 2em;
+    width: 100%;
+    margin-top: 20px;
+    color: #d52845;
+  }
+  .nested-fields {
+    margin-bottom: 20px;
+  }
 }
 
 .request-new, .edit-profile, .request-edit {

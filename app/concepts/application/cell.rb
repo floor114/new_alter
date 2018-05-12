@@ -4,7 +4,10 @@ module Application
   class Cell < Trailblazer::Cell
     include ActionView::Helpers::TranslationHelper
     include ActionView::Helpers::CsrfHelper
+    include ActionView::Helpers::FormOptionsHelper
+    include ActionView::Helpers::NumberHelper
     include Devise::Controllers::Helpers
+    include Cocoon::ViewHelpers
     include Pundit
 
     DESCRIPTION_LENGTH_IN_LIST = 530

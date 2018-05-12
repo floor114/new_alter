@@ -5,4 +5,5 @@
         = link_to_if policy?(:show), image_tag(photo.url), model
     .col-md-8
       = cell(::Request::Cell::Info, model, list: true)
-      = cell(::Request::Cell::Categories, model)
+      .categories
+        = cell(::Request::Cell::Category, collection: categories)

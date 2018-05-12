@@ -24,6 +24,7 @@ gem 'font-awesome-rails'
 gem 'sprockets',                                                '>= 4.0.0.beta7'
 #TODO: remove after adding webpacker
 gem 'sprockets-es6'
+gem 'select2-rails'
 
 #=== CONFIG ====================================================================
 gem 'dotenv-rails',                                                     '~> 2.2'
@@ -44,6 +45,7 @@ gem 'pundit'
 #=== FEATURES =====================================================================
 gem 'paperclip',                                                      '~> 6.0.0'
 gem 'aws-sdk-s3',                                                         '~> 1'
+gem 'cocoon'
 
 #=== DEV & TEST ================================================================
 group :development do
