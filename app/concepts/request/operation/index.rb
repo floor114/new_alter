@@ -4,14 +4,14 @@ class Request
   class Index < ::Application::Operation
     step ::Trailblazer::Operation::Policy::Pundit(::RequestPolicy, :index?)
 
-    step :setup_finder!
+    step :set_finder_defaults!
 
-    step ::Trailblazer::Operation::Finder(Request::Finder, :all, ::Request)
+    step ::Trailblazer::Operation::Finder(::Request::Finder, :all)
 
     failure ::Trailblazer::Operation::HandleAlerts
 
-    def setup_finder!(context, **)
-      context['finder.params'] = { status: ::Request::CONFIRMED, sort: 'created_at desc' }
+    def set_finder_defaults!(context, **)
+      context['finder.defaults'] = { status: ::Request::CONFIRMED, sort: 'created_at desc' }
     end
   end
 end

@@ -40,7 +40,9 @@
                   = link_to t('views.actions.articles.create'), pages_about_path
                 -#- if current_user.with_privileges?
                 %li
-                  = link_to t('views.titles.admin.panel'), pages_about_path
+                  = link_to_allowed t('views.titles.admin.panel'),
+                                    admin_root_path,
+                                    action: :user_with_privileges, record: User
                 -#- if can? :unchecked, Request
                 %li
                   = link_to pages_about_path do

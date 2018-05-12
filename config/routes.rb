@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :accepted_items
+    resources :categories
+    resources :decisions
+    resources :requests
+    resources :required_items
+    resources :users
+
+    root to: 'users#index'
+  end
+
   root to: 'pages#home'
 
   devise_for :users, controllers: {
