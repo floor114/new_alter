@@ -5,7 +5,7 @@ describe User::Index do
   let!(:user1) { create :user, :administrator }
   let!(:user2) { create :user, :banned }
   let!(:user3) { create :user, :moderator }
-  let!(:user4) { create :user, :volunteer }
+  let!(:user4) { create :user }
   let!(:user5) { create :user, :newsmaker }
   let(:params) { {} }
 

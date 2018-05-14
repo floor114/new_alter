@@ -1,5 +1,5 @@
 .group-modal-form
-  = form_for model, url: request_decisions_path(request), remote: true, html: { class: 'item-form', data: { modal: true } } do |f|
+  = form_for model, url: request_decisions_path(request), remote: true, html: { class: 'item-form' } do |f|
     .modal-body
       = f.text_area :description, class: 'custom-textarea', rows: 7
       = cell(::Decision::Cell::Created::AcceptedItems, f)

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Request::Confirm do
   let(:user) { create :user, :administrator }
   let(:params) { { id: request.id } }
-  let(:request) { create :request, :unconfirmed, user: user }
+  let(:request) { create :request, user: user }
 
   subject(:result) { fetch_operation }
 
@@ -56,7 +56,7 @@ describe Request::Confirm do
       end
 
       context 'user without privileges' do
-        let(:user) { create :user, :volunteer }
+        let(:user) { create :user }
 
         it_behaves_like 'failure result'
       end

@@ -26,20 +26,20 @@
           -#  = link_to dialog_messages_url(user: user), title: 'Написати повідомлення' do
           -#%span.fa.fa-envelope
         %p.name= full_name
-        %p.role= t(role, scope: 'activerecord.attributes.user.roles')
+        %p.role= t(role, scope: 'activemodel.attributes.user.roles')
         = info_block
         .contact-info
           = phone_number_block
     .tabs
       %ul#tab-links-container.nav.nav-tabs.nav-justified
         %li.active
-          = link_to t('activerecord.attributes.request.statuses.confirmed'), user_request_confirmed_index_path(model), data: { tab: true }
+          = link_to t('activemodel.attributes.request.statuses.confirmed'), user_request_confirmed_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.archived'), user_request_archived_index_path(model), data: { tab: true }
+          = link_to t('activemodel.attributes.request.statuses.archived'), user_request_archived_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.unconfirmed'), user_request_unconfirmed_index_path(model), data: { tab: true }
+          = link_to t('activemodel.attributes.request.statuses.unconfirmed'), user_request_unconfirmed_index_path(model), data: { tab: true }
         %li
-          = link_to t('activerecord.attributes.request.statuses.declined'), user_request_declined_index_path(model), data: { tab: true }
+          = link_to t('activemodel.attributes.request.statuses.declined'), user_request_declined_index_path(model), data: { tab: true }
         -#- if can? :activity, user
         -#  %li
         -#    = link_to 'Активність', activity_user_url, remote: true

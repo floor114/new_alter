@@ -23,12 +23,14 @@
     /TODO: Add request wall
     /TODO: Add request activity history
     .tabs
-      %ul.nav.nav-tabs.nav-justified
+      %ul#tab-links-container.nav.nav-tabs.nav-justified
         %li.active
-          = link_to root_path do
+          = link_to request_messages_path(model), data: { tab: true } do
             = t('views.titles.requests.wall')
-            %span#wall-counter.text-right
-              = "(10)"
+            %span#wall-counter.text-right= "(#{messages.size})"
+        -#- if can? :activity, @request
+        -#  %li
+        -#    = link_to 'Активність', activity_request_url, remote: true
       .tab-content
-        .tab-pane.active
+        #tab-container.tab-pane.active
           %p.nothing-to-show= t('errors.messages.nothing_to_show')

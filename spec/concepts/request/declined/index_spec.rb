@@ -7,7 +7,7 @@ describe Request::Declined::Index do
   let!(:request2) { create :request, :declined, user: user }
   let!(:request3) { create :request, :declined }
   let!(:request4) { create :request, :archived, user: user }
-  let!(:request5) { create :request, :unconfirmed, user: user }
+  let!(:request5) { create :request, user: user }
   let!(:request6) { create :request, :confirmed, user: user }
 
   subject(:result) { fetch_operation }

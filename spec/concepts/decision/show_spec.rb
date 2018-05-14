@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Decision::Show do
   let(:user) { create :user }
   let(:params) { { id: decision.id } }
-  let(:decision) { create :decision, :created, request: request }
+  let(:decision) { create :decision, request: request }
   let(:request) { create :request, user: user }
 
   subject(:result) { fetch_operation }
