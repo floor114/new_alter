@@ -3,7 +3,7 @@ class Message
     class Cell
       class Index < ::Application::Cell
         def new_message_form
-          return unless policy?(:request_create, Message)
+          return unless policy?(:user_exist, Message)
 
           cell(::Message::Request::Cell::Form, ::Message.new)
         end
