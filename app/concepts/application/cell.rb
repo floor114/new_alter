@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
+# TODO: refactor base cell
+
 module Application
   class Cell < Trailblazer::Cell
     include ActionView::Helpers::TranslationHelper
     include ActionView::Helpers::CsrfHelper
     include ActionView::Helpers::FormOptionsHelper
     include ActionView::Helpers::NumberHelper
+    include ActionView::Helpers::DateHelper
     include Devise::Controllers::Helpers
     include Cocoon::ViewHelpers
     include Pundit
@@ -28,7 +31,7 @@ module Application
       return empty_block if relation.blank?
 
       cell(
-        "::#{relation.model_name.to_s.constantize}::Cell::List".constantize,
+        "::#{self.class.name.split('::Cell').first}::Cell::List".constantize,
         collection: relation
       )
     end

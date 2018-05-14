@@ -7,7 +7,7 @@ describe Request::Archived::Index do
   let!(:request2) { create :request, :archived, user: user }
   let!(:request3) { create :request, :archived }
   let!(:request4) { create :request, :confirmed, user: user }
-  let!(:request5) { create :request, :unconfirmed, user: user }
+  let!(:request5) { create :request, user: user }
   let!(:request6) { create :request, :declined, user: user }
 
   subject(:result) { fetch_operation }

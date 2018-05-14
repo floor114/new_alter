@@ -92,7 +92,10 @@ en:
       confirmation:
         request:
           archive: Do you realy want to archive request?
-  activerecord:
+      message:
+        posted_ago: 'Posted %{time} ago'
+        deleted: Message was successfuly deleted
+  activemodel:
     models:
       user:
         one: User
@@ -124,6 +127,8 @@ en:
           archived: Archived
           unconfirmed: Unconfirmed
           declined: Declined
+      message:
+        body: Body
     errors:
       models:
         user:
@@ -138,6 +143,10 @@ en:
           attributes:
             base:
               not_found: Decision not found.
+        message:
+          attributes:
+            base:
+              not_found: Message not found.
       messages:
         blank: can't be blank
   errors:

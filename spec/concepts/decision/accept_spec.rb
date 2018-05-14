@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Decision::Accept do
   let(:user) { create :user }
   let(:params) { { id: decision.id } }
-  let(:decision) { create :decision, :created, request: request }
+  let(:decision) { create :decision, request: request }
   let!(:accepted_item1) { create :accepted_item, decision: decision }
   let!(:accepted_item2) { create :accepted_item, decision: decision }
   let(:request) { create :request, user: user }

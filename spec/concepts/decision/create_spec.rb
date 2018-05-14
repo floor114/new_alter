@@ -38,7 +38,7 @@ describe Decision::Create do
         it_behaves_like 'success result'
 
         context 'and some other decisions are present' do
-          let!(:decision1) { create :decision, :created, user: user }
+          let!(:decision1) { create :decision, user: user }
           let!(:decision2) { create :decision, :accepted, user: user }
 
           it_behaves_like 'success result'

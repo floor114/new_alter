@@ -1,6 +1,6 @@
 = form_for model, html: { multipart: true } do |f|
-  = f.text_field :title, placeholder: t('activerecord.attributes.request.title'), class: 'custom-input'
-  = f.text_area :description, autofocus: true, rows: 10, placeholder: t('activerecord.attributes.request.description'), class: 'custom-textarea'
+  = f.text_field :title, placeholder: t('activemodel.attributes.request.title'), class: 'custom-input'
+  = f.text_area :description, autofocus: true, rows: 10, placeholder: t('activemodel.attributes.request.description'), class: 'custom-textarea'
   .nested-items
     = f.fields_for :required_items do |required_item|
       = render view: :required_item_fields, locals: { f: required_item }

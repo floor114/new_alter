@@ -10,7 +10,7 @@ class User
     failure ::Trailblazer::Operation::HandleAlerts
 
     def not_found!(context)
-      context['error_message'] = t('activerecord.errors.models.user.attributes.base.not_found')
+      context['error_message'] = t('activemodel.errors.models.user.attributes.base.not_found')
     end
   end
 end

@@ -44,7 +44,7 @@ describe Request::Archive do
 
     context 'not correct because of' do
       context 'unconfirmed request' do
-        let(:request) { create :request, :unconfirmed, user: user }
+        let(:request) { create :request, user: user }
 
         it_behaves_like 'failure result'
       end

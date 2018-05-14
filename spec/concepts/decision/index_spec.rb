@@ -10,9 +10,9 @@ describe Decision::Index do
     context 'correct' do
       let(:request) { create :request, :confirmed, user: user }
       let!(:decision1) { create :decision, :read, request: request }
-      let!(:decision2) { create :decision, :created, request: request }
+      let!(:decision2) { create :decision, request: request }
       let!(:decision3) { create :decision, :read, request: request }
-      let!(:decision4) { create :decision, :created, request: request }
+      let!(:decision4) { create :decision, request: request }
       let!(:decision5) { create :decision, :read }
       let!(:decision6) { create :decision, :accepted, request: request }
       let!(:decision7) { create :decision, :partly_accepted, request: request }

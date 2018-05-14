@@ -16,4 +16,5 @@ class Request < ApplicationRecord
   has_many :decisions, dependent: :destroy
   has_many :required_items, dependent: :destroy, autosave: true
   has_many :categories, through: :required_items
+  has_many :messages, as: :receiver, dependent: :destroy, inverse_of: :receiver
 end

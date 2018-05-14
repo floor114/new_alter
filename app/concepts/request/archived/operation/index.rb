@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency 'request/operation/index'
-
 class Request
   module Archived
     class Index < ::Application::Operation

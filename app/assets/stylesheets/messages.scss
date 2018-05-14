@@ -1,0 +1,247 @@
+.message-box {
+  margin: 20px 0;
+  a {
+    color: #d52845;
+    outline: none;
+  }
+  .listing-messages {
+    margin-top: 25px;
+    .message {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eeeeee;
+      &:first-child {
+        border-top: 1px solid #eeeeee;
+      }
+    }
+    .message-info {
+      margin-bottom: 10px;
+      h4 {
+        display: inline;
+      }
+      .status {
+        display: inline;
+        vertical-align: middle;
+        font-size: 0.5em;
+        font-weight: bold;
+        border-radius: 2px;
+        border: 1px solid #cbcbcb;
+      }
+      .attachment {
+        color: #777;
+      }
+      .date {
+        font-size: 0.7em;
+        color: #777;
+      }
+    }
+    .message-body {
+      text-align: justify;
+      line-height: 1em;
+      font-size: 0.8em;
+      height: 3em;
+      overflow: hidden;
+    }
+  }
+  .modal .attachment {
+    margin-bottom: 25px;
+    text-align: center !important;
+    img {
+      margin: 0 auto 5px auto;
+    }
+  }
+  .nav {
+    a {
+      margin: 0;
+    }
+    .disabled {
+      background-color: transparent !important;
+      a {
+        color: #999 !important;
+        border: 1px solid transparent;
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+.image {
+  width: 100px;
+  max-width: 100px;
+  height: 100px;
+  max-height: 100px;
+}
+
+.icon {
+  width: 50px;
+  max-width: 50px;
+  height: 50px;
+  max-height: 50px;
+}
+
+.message-form {
+  .blocked {
+    cursor: no-drop;
+  }
+  textarea {
+    resize: none;
+    font-size: 16px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &::-webkit-scrollbar {
+      width: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 15px;
+      background-color: #b5d3dc;
+    }
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+    }
+  }
+  .actions {
+    input[type=submit] {
+      margin: 0;
+      width: 15%;
+      padding: 10px 5px;
+      float: right;
+    }
+    .bootstrap-filestyle {
+      .group-span-filestyle {
+        border-right: 1px solid #cbcbcb;
+      }
+      input {
+        padding: 10px 5px;
+      }
+    }
+    .fields {
+      margin: 5px;
+    }
+  }
+}
+
+.dialog {
+  padding: 20px 15px;
+  a {
+    color: #d52845;
+    outline: none;
+  }
+  .message, .message-container, input, textarea {
+    border-radius: 15px !important;
+  }
+  .messages {
+    .sent .message-container {
+      background-color: #eddcc0 !important;
+      text-align: right;
+      float: right;
+    }
+    .new {
+      background-color: #d2d2d2;
+      .message-container {
+        background-color: #d2d2d2 !important;
+      }
+    }
+    .sent.new {
+      background-color: #e6b9aa;
+      .message-container {
+        background-color: #e6b9aa !important;
+      }
+    }
+    .message {
+      display: inline-block;
+      margin: 5px 0;
+      width: 100%;
+      .message-container {
+        width: 60%;
+        background-color: #f0f0f0;
+        display: inline-block;
+        padding: 15px 15px;
+        .attachments {
+          .image-attachments {
+            margin-top: 25px;
+            .attachment {
+              display: inline-block;
+              small {
+                font-size: 10px;
+                display: block;
+                text-align: center;
+              }
+            }
+          }
+          .other-attachments {
+            margin-top: 25px;
+          }
+        }
+      }
+    }
+  }
+  .message-form {
+    margin-top: 20px;
+    .bootstrap-filestyle input {
+      border: none;
+      background: none;
+      box-shadow: none;
+      width: auto;
+    }
+  }
+}
+
+.wall {
+  padding: 15px 0;
+  .post-index {
+    .photo {
+      padding: 0;
+      width: 100%;
+    }
+    .title {
+      margin-top: 5px;
+      font-size: 1.2em;
+    }
+    .date {
+      font-size: 0.7em;
+      color: #666666;
+      margin-bottom: 5px;
+    }
+    .description {
+      margin: 0;
+      color: #35353f;
+    }
+    .delete {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .attachments {
+      .image-attachments {
+        margin-top: 25px;
+        div.attachment {
+          display: inline-block !important;
+          small {
+            font-size: 10px;
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+      .other-attachments {
+        margin-top: 25px;
+      }
+    }
+    .inline {
+      vertical-align: top;
+      small {
+        font-size: 10px;
+        color: #333;
+        font-weight: bold;
+        display: block;
+      }
+      .thumb {
+        width: 50px;
+        max-width: 50px;
+        height: 50px;
+        max-height: 50px;
+      }
+    }
+  }
+}

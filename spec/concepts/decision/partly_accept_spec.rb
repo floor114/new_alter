@@ -4,7 +4,7 @@ describe Decision::PartlyAccept do
   let(:user) { create :user }
   let(:params) { { id: decision.id, decision: decision_params } }
   let(:request) { create :request, user: user}
-  let(:decision) { create :decision, :created, request: request }
+  let(:decision) { create :decision, request: request }
   let(:decision_params) { { accepted_items: accepted_items_params } }
   let(:accepted_items_params) { [accepted_item1_params, accepted_item2_params] }
   let(:accepted_item1) { create :accepted_item, decision: decision, count: count1 }

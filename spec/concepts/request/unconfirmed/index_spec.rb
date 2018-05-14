@@ -3,9 +3,9 @@ require 'rails_helper'
 describe Request::Unconfirmed::Index do
   let(:user) { create :user }
   let(:params) { {} }
-  let!(:request1) { create :request, :unconfirmed, user: user }
-  let!(:request2) { create :request, :unconfirmed, user: user }
-  let!(:request3) { create :request, :unconfirmed }
+  let!(:request1) { create :request, user: user }
+  let!(:request2) { create :request, user: user }
+  let!(:request3) { create :request }
   let!(:request4) { create :request, :archived, user: user }
   let!(:request5) { create :request, :confirmed, user: user }
   let!(:request6) { create :request, :declined, user: user }

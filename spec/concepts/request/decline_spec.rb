@@ -40,7 +40,7 @@ describe Request::Decline do
       end
 
       context 'unconfirmed request and' do
-        let(:request) { create :request, :unconfirmed, user: user }
+        let(:request) { create :request, user: user }
 
         context 'user as administrator' do
           it_behaves_like 'success result'
@@ -68,7 +68,7 @@ describe Request::Decline do
       end
 
       context 'user without privileges' do
-        let(:user) { create :user, :volunteer }
+        let(:user) { create :user }
 
         it_behaves_like 'failure result'
       end

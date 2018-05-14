@@ -6,11 +6,21 @@ FactoryBot.define do
     password Faker::Internet.password(20)
     confirmed_at Time.zone.now
     role User::VOLUNTEER
-  end
 
-  User.roles.each do |key, value|
-    trait key do
-      role value
+    trait :administrator do
+      role User::ADMINISTRATOR
+    end
+
+    trait :moderator do
+      role User::MODERATOR
+    end
+
+    trait :newsmaker do
+      role User::NEWSMAKER
+    end
+
+    trait :banned do
+      role User::BANNED
     end
   end
 end

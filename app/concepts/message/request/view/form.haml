@@ -1,0 +1,4 @@
+= form_for new_message, url: request_messages_path, remote: true, html: { class: 'message-form' } do |f|
+  = f.text_area :body, rows: 5, placeholder: t('activemodel.attributes.message.body'), class: 'custom-textarea'
+  .actions.clearfix
+    = f.submit t('views.actions.publish'), class: 'button without-shadow', data: data_disable_with

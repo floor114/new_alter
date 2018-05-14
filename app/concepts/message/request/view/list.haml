@@ -1,0 +1,29 @@
+.post{id: "post-#{id}"}
+  .row
+    .col-md-2
+      .photo
+        = link_to_if policy?(:show, user), image_tag(user_avatar.url), user
+    .col-md-10
+      %p.title= link_to_if policy?(:show, user), user.full_name, user
+      = link_to_allowed request_message_path(receiver, model), method: :delete,
+                                                               class: 'delete',
+                                                               remote: true,
+                                                               action: :request_destroy,
+                                                               data: { parent: 2 } do
+        %span.fa.fa-times
+      %p.date= t('views.messages.message.posted_ago', time: time_ago_in_words(created_at))
+      .description
+        %p.break-word= body
+        /TODO: post messages attachments
+        -#- unless post.attachments.empty?
+        -#  .attachments
+        -#    .image-attachments
+        -#      - post.attachments.image_attachments.each do |attachment|
+        -#        .attachment
+        -#          = link_to attachment.content.url do
+        -#            = image_tag attachment.content.url, class: 'img-rounded image'
+        -#    .other-attachments
+        -#      - (post.attachments - post.attachments.image_attachments).each do |attachment|
+        -#        .attachment
+        -#          %span{class: "glyphicon glyphicon-#{attachment.select_icon}"}
+        -#          = link_to attachment.form_name, download_attachment_path(attachment), title: attachment.content_file_name

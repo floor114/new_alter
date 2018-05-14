@@ -29,8 +29,4 @@ class ApplicationPolicy
   def user_exist?
     user.present?
   end
-
-  alias_method :index?, :not_allowed
-
-  public :index?
 end

@@ -1,5 +1,5 @@
 .group-modal-form
-  = form_for model, url: decision_partly_accepted_path(model), remote: true, html: { data: { modal: true } } do |f|
+  = form_for model, url: decision_partly_accepted_path(model), remote: true do |f|
     .modal-body
       = cell(::Decision::Cell::PartlyAccepted::AcceptedItems, f)
     .modal-footer

@@ -5,7 +5,7 @@ describe Request::Index do
   let(:params) { {} }
   let!(:request1) { create :request, :declined }
   let!(:request2) { create :request, :confirmed }
-  let!(:request3) { create :request, :unconfirmed }
+  let!(:request3) { create :request }
   let!(:request4) { create :request, :archived }
   let!(:request5) { create :request, :confirmed }
 

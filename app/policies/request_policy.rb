@@ -1,3 +1,5 @@
+# TODO: split policy as concepts
+
 class RequestPolicy < ApplicationPolicy
   delegate :unconfirmed?, :confirmed?, to: :record
 

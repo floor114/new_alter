@@ -16,5 +16,6 @@
 //= require cocoon
 //= require alerts
 //= require modals
+//= require remote
 //= require tabs
 //= require extensions

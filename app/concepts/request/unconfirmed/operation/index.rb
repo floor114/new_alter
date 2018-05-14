@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency 'request/operation/index'
-
 class Request
   module Unconfirmed
     class Index < ::Application::Operation

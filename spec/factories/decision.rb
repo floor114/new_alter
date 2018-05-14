@@ -4,11 +4,21 @@ FactoryBot.define do
     user
     request
     status Decision::CREATED
-  end
 
-  Decision.statuses.each do |key, value|
-    trait key do
-      status value
+    trait :read do
+      status Decision::READ
+    end
+
+    trait :rejected do
+      status Decision::REJECTED
+    end
+
+    trait :accepted do
+      status Decision::ACCEPTED
+    end
+
+    trait :partly_accepted do
+      status Decision::PARTLY_ACCEPTED
     end
   end
 end
