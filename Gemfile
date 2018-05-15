@@ -49,6 +49,7 @@ gem 'cocoon'
 gem 'administrate',                              github: 'floor114/administrate'
 gem 'faker'
 gem 'rails-i18n'
+gem 'impressionist'
 
 #=== DEV & TEST ================================================================
 group :development do

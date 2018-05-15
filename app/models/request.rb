@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Request < ApplicationRecord
+  is_impressionable
+
   enum status: {
     confirmed: CONFIRMED = 'confirmed',
     archived: ARCHIVED = 'archived',

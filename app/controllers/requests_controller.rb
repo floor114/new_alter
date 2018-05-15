@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  impressionist actions: %i[show]
 
   def index
     run Request::Index do
