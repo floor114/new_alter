@@ -2,6 +2,7 @@
   .request-show
     .photo
       = image_tag(photo.url)
+      .sharethis-inline-share-buttons{ data: { title: title, description: truncated_description, image: photo.url } }
     .actions.request-actions
       = link_to_allowed edit_request_path, action: :edit, title: t('views.actions.requests.edit') do
         %span.fa.fa-pencil

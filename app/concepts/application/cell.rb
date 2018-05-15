@@ -61,9 +61,11 @@ module Application
     private
 
     def truncated_description_block
-      content_tag(:p, class: 'description description-list') do
-        description.truncate(DESCRIPTION_LENGTH_IN_LIST, separator: ' ')
-      end
+      content_tag(:p, truncated_description, class: 'description description-list')
+    end
+
+    def truncated_description
+      @truncated_description ||= description.truncate(DESCRIPTION_LENGTH_IN_LIST, separator: ' ')
     end
 
     def controller_title

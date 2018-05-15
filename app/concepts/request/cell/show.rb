@@ -3,7 +3,7 @@
 class Request
   class Cell
     class Show < ::Application::Cell
-      property :user, :photo, :required_items, :categories, :messages
+      property :user, :photo, :required_items, :categories, :messages, :title, :description
 
       def help_link
         return if policy?(:act_as_assigned_user) || !policy?(:user_exist)
