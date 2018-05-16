@@ -11,6 +11,8 @@ class Request
     step ->(_, model:, **) { model.declined! }
     step ->(context, **) { context['success_message'] = I18n.t('views.messages.request.declined') }
 
+    step ::Trailblazer::Operation::CreateActivity(action: :decline)
+
     finally ::Trailblazer::Operation::HandleAlerts
   end
 end

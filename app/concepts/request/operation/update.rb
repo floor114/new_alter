@@ -15,5 +15,7 @@ class Request
     failure ::Trailblazer::Operation::HandleAlerts
 
     step ::Trailblazer::Operation::Contract::Persist()
+
+    step ::Trailblazer::Operation::CreateActivity(action: :update)
   end
 end

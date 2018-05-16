@@ -50,6 +50,7 @@ gem 'administrate',                              github: 'floor114/administrate'
 gem 'faker'
 gem 'rails-i18n'
 gem 'impressionist'
+gem 'public_activity'
 
 #=== DEV & TEST ================================================================
 group :development do

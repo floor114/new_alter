@@ -50,6 +50,7 @@ describe Request::Create do
           expect(result['model'].user).to eq(user)
           expect(result['model'].required_items.pluck(:goal)).to include(goal1, goal2)
           expect(result['model'].required_items.pluck(:category_id)).to include(category1.id, category2.id)
+          expect(result['model'].activities.pluck(:key)).to include('request.create')
         end
       end
 

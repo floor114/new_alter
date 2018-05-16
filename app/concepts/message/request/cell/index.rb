@@ -2,10 +2,12 @@ class Message
   class Request
     class Cell
       class Index < ::Application::Cell
-        def new_message_form
-          return unless policy?(:user_exist, Message)
+        def new_message
+          @new_message ||= ::Message.new(receiver: receiver)
+        end
 
-          cell(::Message::Request::Cell::Form, ::Message.new)
+        def receiver
+          ::Request.find_by(id: params[:request_id])
         end
       end
     end

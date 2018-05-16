@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  include PublicActivity::Activist
+  activist
+
   enum role: {
     administrator: ADMINISTRATOR = 'administrator',
     moderator: MODERATOR = 'moderator',
@@ -23,6 +26,6 @@ class User < ApplicationRecord
   scope :visible, ->(user) { where(role: [VOLUNTEER, BANNED, NEWSMAKER]).where.not(id: user&.id) }
 
   def full_name
-    @full_name ||= "#{first_name} #{last_name}"
+    @full_name ||= "#{first_name} #{last_name}".strip
   end
 end

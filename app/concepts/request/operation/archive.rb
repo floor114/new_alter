@@ -11,6 +11,8 @@ class Request
     step ->(_, model:, **) { model.archived! }
     step ->(context, **) { context['success_message'] = I18n.t('views.messages.request.archived') }
 
+    step ::Trailblazer::Operation::CreateActivity(action: :archive)
+
     finally ::Trailblazer::Operation::HandleAlerts
   end
 end

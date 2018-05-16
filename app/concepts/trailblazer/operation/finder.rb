@@ -53,16 +53,11 @@ module Trailblazer
           apply_id(params)
 
           if entity_type.nil?
-            finder_class.new(
-              filter: options['finder.params'],
-              page: params[:page],
-              per_page: params[:per_page]
-            ).results.first
+            finder_class.new(filter: options['finder.params'], page: params[:page],
+                             per_page: params[:per_page]).results.first
           else
-            finder_class.new(
-              entity_type: entity_type,
-              filter: options['finder.params']
-            ).results.first
+            finder_class.new(entity_type: entity_type,
+                             filter: options['finder.params']).results.first
           end
         end
 

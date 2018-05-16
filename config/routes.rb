@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   resources :requests, except: :destroy do
     resources :decisions, only: %i[new create]
     resources :messages, only: %i[create index destroy], module: :requests
+    resources :activities, only: :index, module: :requests
   end
   namespace :requests, as: :request do
     resources :confirmed, only: :update

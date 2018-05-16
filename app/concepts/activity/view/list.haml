@@ -1,0 +1,9 @@
+.notification{id: "notification-#{id}"}
+  .row
+    .col-md-1
+      = activity_icon_block
+    .col-md-11
+      .body
+        %h1.title= text
+        .info
+          %p.date= t('views.messages.ago', time: time_ago_in_words(created_at))
