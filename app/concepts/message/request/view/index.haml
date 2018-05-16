@@ -1,5 +1,6 @@
 .wall
-  = new_message_form
+  = allowed_block :request_create, new_message do
+    = cell(::Message::Request::Cell::Form, new_message)
   .infinite
     .post-index
       = list_block

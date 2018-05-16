@@ -95,6 +95,14 @@ en:
       message:
         posted_ago: 'Posted %{time} ago'
         deleted: Message was successfuly deleted
+      activity:
+        request:
+          create: 'Request was created by %{link}.'
+          update: 'Request was updated by %{link}.'
+          confirm: 'Request was confirmed  by %{link}.'
+          decline: 'Request was declined by %{link}.'
+          archive: 'Request was archived by %{link}.'
+      ago: '%{time} ago'
   activemodel:
     models:
       user:

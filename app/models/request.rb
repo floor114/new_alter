@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Request < ApplicationRecord
+  include PublicActivity::Common
+
   is_impressionable
 
   enum status: {

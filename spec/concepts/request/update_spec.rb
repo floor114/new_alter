@@ -86,6 +86,8 @@ describe Request::Update do
           ri2 = result['model'].required_items.find(required_item2.id)
           expect(ri2.category).to eq(category2)
           expect(ri2.goal).to eq(goal2)
+
+          expect(result['model'].activities.pluck(:key)).to include('request.update')
         end
       end
 

@@ -25,10 +25,15 @@
     /TODO: Add request activity history
     .tabs
       %ul#tab-links-container.nav.nav-tabs.nav-justified
-        %li.active
-          = link_to request_messages_path(model), data: { tab: true } do
-            = t('views.titles.requests.wall')
-            %span#wall-counter.text-right= "(#{messages.size})"
+        = allowed_block :request_index, Message do
+          %li.active
+            = link_to request_messages_path(model), data: { tab: true } do
+              = t('views.titles.requests.wall')
+              %span#wall-counter.text-right= "(#{messages.size})"
+        = allowed_block :request_index, Activity do
+          %li
+            = link_to 'Активність', request_activities_path(model), data: { tab: true }
+
         -#- if can? :activity, @request
         -#  %li
         -#    = link_to 'Активність', activity_request_url, remote: true

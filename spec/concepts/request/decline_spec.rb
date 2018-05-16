@@ -12,6 +12,7 @@ describe Request::Decline do
       it do
         is_expected.to be_success
         expect(result['model'].status).to eq(Request::DECLINED)
+        expect(result['model'].activities.pluck(:key)).to include('request.decline')
         expect(result['alerts']).to be_present
       end
     end

@@ -12,6 +12,7 @@ describe Request::Confirm do
       it do
         is_expected.to be_success
         expect(result['model'].status).to eq(Request::CONFIRMED)
+        expect(result['model'].activities.pluck(:key)).to include('request.confirm')
         expect(result['alerts']).to be_present
       end
     end

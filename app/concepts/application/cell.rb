@@ -51,11 +51,17 @@ module Application
     end
 
     def link_to_allowed(name = nil, options = nil, html_options = nil, &block)
-      custom_options = block_given? ? options : html_options
+      opts = block_given? ? options : html_options
 
-      return unless policy?(custom_options.delete(:action), custom_options.delete(:record) || model)
+      allowed_block(opts.delete(:action), opts.delete(:record)) do
+        link_to(name, options, html_options, &block)
+      end
+    end
 
-      link_to(name, options, html_options, &block)
+    def allowed_block(action, record, &block)
+      return unless policy?(action, record || model)
+
+      capture(&block)
     end
 
     private
